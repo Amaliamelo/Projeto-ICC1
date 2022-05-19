@@ -1,0 +1,3 @@
+UltimoUsuario = 1
+Primeiro Usuario = 1
+player_
