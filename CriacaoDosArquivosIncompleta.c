@@ -1,17 +1,23 @@
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
+#include <stdlib.h>
+
+
 
 int MenuInicial();
 int iniciar();
 int continuar();
 void sair();
-
+int MenuRodadas();
+int NovaRodada();
 //função principal
 int main (){
     int x = MenuInicial();
     printf("Você escolheu %d\n", x);
     if (x==1){
     	iniciar();
+    	MenuRodadas();
 	}
 	else{
 		if(x==2){
@@ -73,7 +79,7 @@ int iniciar(){
     int ContadorUsuarios = 1;
     char player[256];
     if(ConfirmacaoDoNomeUsuario==1){
-
+		/*
             ArquivoUsuarioBase=fopen("BaseUsuarios.txt","w+");
 
             if(ArquivoUsuarioBase == NULL){
@@ -92,8 +98,8 @@ int iniciar(){
 
             ArquivoUsuarioUnico=open(player_%d,"w+");
                 //FIM FASE DE TESTE
-        /*
-        Criacao do arquivo utilizando o nome do usuario
+       */
+        //Criacao do arquivo utilizando o nome do usuario
 
             strcpy(nome_confirmado,strcat(NomeUsuario,".txt"));
             arq_usuario=fopen(nome_confirmado,"w+");
@@ -103,8 +109,8 @@ int iniciar(){
                 exit(0);
             }
 
-        FIM DO BLOCO DO ARQUIVO
-        */
+        //FIM DO BLOCO DO ARQUIVO
+        
 
         /*
         Testando o arquivo, leitura e escrita
@@ -133,4 +139,36 @@ int continuar(){
 
 void sair(){
     exit(0);
+}
+
+int MenuRodadas(){
+	
+	int EscolhaJogador;
+	
+    do{
+        fprintf(stdout,"1 - Nova Rodada, 2 - Salvar e sair, 3 - Sair\n");
+        fprintf(stdout,"LEMBRE-SE: a opcao 3 nao salvara o seu percurso até aqui \n");
+        fprintf(stdout,"\n Digite sua escolha: ");
+        scanf("%d", &EscolhaJogador); //armazenando a escolha
+        if(EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
+            // se a escolha for correta, retorna ela
+            return EscolhaJogador;
+        if(EscolhaJogador < 1 || EscolhaJogador > 3)
+        // se for incorreta, entra no loop ate ser digitada corretamente
+        fprintf(stdout,"Valor incorreto, digite novamente\n");
+        break;
+
+    }while(EscolhaJogador != 3);
+    
+    return 0;
+
+}
+
+int NovaRodada(){
+	
+	int dado;
+	
+	srand(time(NULL));
+	
+	dado = rand()%7;
 }
