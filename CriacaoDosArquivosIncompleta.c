@@ -4,9 +4,9 @@
 #include <stdlib.h>
 #include <locale.h>
 
-/* escrever as situaÁ„oes e os ids de cada uma delas em arquivo .csv
-cada linha vai ter uma situaÁ„o
-determinar um limitador para saber onde para a situaÁ„o e onde comeÁa ou n„o as opÁıes
+/* escrever as situaÔøΩÔøΩoes e os ids de cada uma delas em arquivo .csv
+cada linha vai ter uma situaÔøΩÔøΩo
+determinar um limitador para saber onde para a situaÔøΩÔøΩo e onde comeÔøΩa ou nÔøΩo as opÔøΩÔøΩes
 */
 
 
@@ -18,7 +18,7 @@ int MenuRodadas();
 int NovaRodada();
 int Salvar_Sair();
 
-//funÁ„o principal
+//funÔøΩÔøΩo principal
 int main (){
 
     //criando tabuleiro
@@ -80,7 +80,7 @@ int MenuInicial(){
     return 0;
 }
 
-//FunÁ„o Iniciar
+//Fun√ß√£o Iniciar
 int iniciar(){
 
 	char NomeUsuario[256];
@@ -88,62 +88,47 @@ int iniciar(){
 	int ConfirmacaoDoNomeUsuario;
 	FILE * arq_usuario;
 
-	printf("Seja Bem - Vindo(a)!!! Digite seu nome de usu·rio: ");
+	printf("Seja Bem - Vindo(a)!!! Digite seu nome de usu√°rio: ");
     scanf("%s", NomeUsuario);
 
-    printf("Seu nome de usuario È: %s ", NomeUsuario);
+    printf("Seu nome de usuario √©: %s ", NomeUsuario);
     printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
     scanf("%d", &ConfirmacaoDoNomeUsuario);
 
-    //verificando se o nome est· de acordo com o que o usuario quer
-    while(ConfirmacaoDoNomeUsuario != 1){
-            printf("Informe um novo nome: \n");
-            scanf("%s", NomeUsuario);
-            printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
-            scanf("%d", &ConfirmacaoDoNomeUsuario);
-
-    }
-    /////////
-
-    //Verificando se a confirmaÁ„o È valida
    	while(ConfirmacaoDoNomeUsuario != 1 && ConfirmacaoDoNomeUsuario != 2){
 	 	printf("Valor incorreto, digite novamente\n");
 	 	scanf("%d", &ConfirmacaoDoNomeUsuario);
 	}
-	//////
 
+    FILE *TestandoNomeUsuario;
 
-	//criacao do Id do usuario para evitar repeticoes
-	/*int IdUsuario = 10;
-    char IdUsuarioChar = (IdUsuario + '0');
-    printf("%s",IdUsuarioChar);*/
-    FILE *ArquivoUsuarioBase, *ArquivoUsuarioUnico;
-    int ContadorUsuarios = 1;
-    char player[256];
     if(ConfirmacaoDoNomeUsuario==1){
-		/*
-            ArquivoUsuarioBase=fopen("BaseUsuarios.txt","w+");
+            /*
+                Criacao dos arquivos e verefica√ß√£o de repeti√ß√£o realizada
+                parte de arquivos dos usuarios est√° pronta
+                falta: Revisionar com os membros do grupo e upar pra main
+            */
+            strcat(NomeUsuario,".txt");
+            strcpy(nome_confirmado,NomeUsuario);
+            TestandoNomeUsuario=fopen(nome_confirmado,"r");
+        if(TestandoNomeUsuario == NULL)
+            printf("O ARQUIVO SER√Å CRIADO\n");
+        else{
 
-            if(ArquivoUsuarioBase == NULL){
-                printf("Deu ruim ao abrir o ArquivoUsuarioBase\n");
-                exit(0);
-            }
-
-            fseek(ArquivoUsuarioBase,0,SEEK_SET);
-            fprintf(ArquivoUsuarioBase,"UltimoUsuario = %d\n", ContadorUsuarios);
-            fprintf(ArquivoUsuarioBase,"Primeiro Usuario = 1\n");
-            fprintf(ArquivoUsuarioBase,"player_\n");
-            fclose(ArquivoUsuarioBase);
-            //TESTANDO AINDA
-            strcat("player_",ContadorUsuarios);
+            do{
+             printf("Digite outro nome: ");
+             scanf("%s", NomeUsuario);
+             strcat(NomeUsuario,".txt");
+             strcpy(nome_confirmado,NomeUsuario);
+             TestandoNomeUsuario=fopen(nome_confirmado,"r");
+             if(TestandoNomeUsuario== NULL)
+                break;
+            }while(TestandoNomeUsuario != NULL);
+        }
+        //Criacao do arquivo utilizando o nome do usuario
             arq_usuario=fopen(nome_confirmado,"w+");
 
-            ArquivoUsuarioUnico=open(player_%d,"w+");
-                //FIM FASE DE TESTE
-       */
-        //Criacao do arquivo utilizando o nome do usuario
 
-            strcpy(nome_confirmado,strcat(NomeUsuario,".txt"));
             arq_usuario=fopen(nome_confirmado,"w+");
 
             if(arq_usuario == NULL){
@@ -151,24 +136,12 @@ int iniciar(){
                 exit(0);
             }
 
-        //FIM DO BLOCO DO ARQUIVO
-
-
-        /*
-        Testando o arquivo, leitura e escrita
-        N√O RETIRA O FSEEK, POR FAVOR
-        Esse bloco foi para teste do arquivo
-        */
-
-        /*char testando[256];
-        fprintf(arq_usuario,"%s","Cafe…Lindo");
-        fseek(arq_usuario,0,SEEK_SET);
-        fscanf(arq_usuario,"%s",testando);
-        printf("%s",testando);
-        fclose(arq_usuario);*/
-        // FIM DO BLOCO DE TESTE
     }
-    return ;
+	else{
+
+	}
+
+    return 0;
 }
 
 int continuar(){
@@ -179,14 +152,14 @@ void sair(){
     exit(0);
 }
 
-//Menu que aparecer· ao final de cada rodade
+//Menu que aparecerÔøΩ ao final de cada rodade
 int MenuRodadas(){
 
 	int EscolhaJogador;
 
     do{
         fprintf(stdout,"\n 1 - Nova Rodada, 2 - Salvar e sair 3 - Sair\n");
-        fprintf(stdout,"LEMBRE-SE: a opcao 3 nao salvara o seu percurso atÈ aqui \n");
+        fprintf(stdout,"LEMBRE-SE: a opcao 3 nao salvara o seu percurso atÔøΩ aqui \n");
         fprintf(stdout,"\n Digite sua escolha: ");
         scanf("%d", &EscolhaJogador); //armazenando a escolha
         if(EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
@@ -204,10 +177,10 @@ int MenuRodadas(){
 }
 
 
-//EM ANDAMENTO --- N√O EST¡ PRONTO
+//EM ANDAMENTO --- NÔøΩO ESTÔøΩ PRONTO
 int NovaRodada(int tabuleiro[8][4]){
 
-    //pegar semestre, pontuaÁ„o e rodada
+    //pegar semestre, pontuaÔøΩÔøΩo e rodada
 	int dado, semestre,pontuacao,situacao;
 
 	srand(time(NULL));
@@ -220,10 +193,11 @@ int NovaRodada(int tabuleiro[8][4]){
 
     situacao=tabuleiro[semestre][dado];
 
-    //puxar situaÁ„o do arquivo
+    //puxar situaÔøΩÔøΩo do arquivo
+    return 0;
 }
 
-//N√O TA PRONTO....FALTA ARQUIVO
+//NÔøΩO TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair(){
     return(0);
 }
