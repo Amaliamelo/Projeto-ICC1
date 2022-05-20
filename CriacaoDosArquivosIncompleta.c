@@ -23,8 +23,10 @@ int main (){
 
     //criando tabuleiro
     int tabuleiro[8][4], cont=0;
-     for(int i=0;i<8;i++){
-        for(int j=0;j<4;j++){
+    int i,j;
+    
+    for(i=0;i<8;i++){
+        for(j=0;j<4;j++){
             tabuleiro[i][j]=cont++;
         }
      }
@@ -208,19 +210,44 @@ int MenuRodadas(){
 int NovaRodada(int tabuleiro[8][4]){
 
     //pegar semestre, pontuação e rodada
-	int dado, semestre,pontuacao,situacao;
+	int dado, semestre =1 ,pontuacao;
+	int situacao;
 
 	srand(time(NULL));
-
-
-
-	while(dado!=0&&dado!=5){
+	
+	dado = rand()%5;
+	//FAZENDO O DADO NÃO CAIR EM NUMEROS QUE NÃO VÃO EXISTIR
+	while(dado==0||dado==5){
         dado = rand()%5;
 	}
+	
+	//Pesquisando no Arquivo 
+	
+	FILE * ArquivoSituacoes;
 
-    situacao=tabuleiro[semestre][dado];
 
-    //puxar situação do arquivo
+	ArquivoSituacoes=fopen("situacoes.txt","r");
+	
+	if(ArquivoSituacoes!=NULL){
+		char texto_situacao[256];
+		char string;
+		
+		//	POSIÇÃO DO PERSONAGEM NO TABULEIRO
+		situacao=tabuleiro[semestre][dado]; 
+		
+		//strcpy(situacao,strcat("",""));
+		
+		//percorre todo o arquivo
+		while((string = fgetc(ArquivoSituacoes)) != EOF){
+			if(string == strcpy(situacao,strcat("",""))){
+				fscanf(ArquivoSituacoes, "%s", &texto_situacao);
+			}
+		}
+		
+		fprintf(stdout,"%s", texto_situacao);
+		
+	}
+   
 }
 
 //NÃO TA PRONTO....FALTA ARQUIVO

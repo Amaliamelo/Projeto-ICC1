@@ -1,0 +1,57 @@
+
+
+
+
+
+"1,""OHHHH NÃOOO!!! Você vai ter aula de Geometria Analítica com um professor com um didática péssima... Boa sorte :)"
+(Se tirar maior ou igual a 4 no dado: Você passou na matéria sem muitas dificuldades)
+"(Se tirar menor ou igual a 3 no dado: Você pegou DP na matéria...)"",Você deu sorte! A P1 de Matemática Discreta será online... continue plenamente  ,""O projeto semestral de ICC1 deverá ser feito em 4 semanas e você terá outros 3 projetos de outras matérias para fazer. Escolha qual projeto aderir: "
+A - Fazer um jogo de RPG
+B - Fazer um banco de dados de um supermercado
+"C - Fazer um jogo da velha"",""Parabéns! Você terá aula de sistemas digitais neste semestre. O professor é ótimo! Mas boa sorte em utilizar o programa de compilação para a placa lógica."
+(Se tirar maior ou igual a 4 no dado: Você passou na matéria sem muitas dificuldades)
+"(Se tirar menor ou igual a 3 no dado: Você não seguiu o pdf do professor e pegou DP por queimar a placa)"",,,,""Você tem que estudar para Geometria Analítica e está pensando em matar a aula de introdução profissional a sistemas de informação: A - Matar a aula para estudar. - (Se tirar maior ou igual a 5 no dado: Você conseguiu estudar e o professor não passou trabalho em aula) - (Se tirar menor ou igual a 4 no dado: Você não conseguiu estudar direito e o professor passou trabalho valendo 5) B - Estudar durante a aula. - (Se tirar maior ou igual a 4 no dado: Você conseguiu estudar para GA e o professor não percebeu) - (Se tirar menor ou igual a 3 no dado: Você não conseguiu estudar para GA, pois o professor percebeu e te tirou da sala) C - Não estudar para GA. - (Se tirar maior ou igual a 4 no dado: O professor passou um trabalho que fez você fechar média nessa matéria) - (Se tirar menor ou igual a 3 no dado: O professor não passou algo importante e você perdeu tempo de estudo :T )"""
+"2,""Não conseguiu atingir a média suficiente para passar em 3 matérias do 1º semestre, escolha: "
+A - tentar fazer todas no 2º semestre
+B - fazer 1 em cada um dos proximos semestres 
+"C - desistir do curso"",""Você não participou da semana de recepção e nem procurou se integrar com seus colegas de sala no primeiro semestre...agora precisa fazer um longo projeto e está sozinho, o que fazer?"
+A - continuar sozinho, sou autosuficiente
+B - Ir nas festas e interagir
+"C - não fazer o projeto"",""A P1 de calculo será no dia de uma festa muito esperada... o que fazer?!"
+A - ir à festa
+B - estudar
+"C - não ir à festa e não conseguir estudar por estra querendo ir à festa"",""Bem vindo a vida de adulto!! Decida: ir a uma festa que vale 25 bandecos ou recarregar o cartão?!"
+A - ir à festa e passar 25 dias fazendo jejum intermitente
+B - Recarregar o cartão e entrar em depressão por não ter ido na festa
+"C - Recarregar o cartão e dormir no dia da festa"",,,,"
+"3,""Vish!!! Você não entende as aulas de teoria da computação e fica sempre boiando na sala, como irá proceder?  A - Tentar estudar com os inteligentes, B - Ir pra festa e se divertir já que não entende mesmo"",""ESTÁGIO!! Você precisa encontrar uma vaga de estágio que lhe ajude a pagar as contas e continuar na graduação, como proceder?!"
+A - Esperar cair do céu ou o ICMC lhe encaminhar
+B - Atualizar seu Linkedin e curriculos diversos e encaminhá-los enlouquecidamente
+"C - Analisar vaga a vaga com atenção para ver se ela se encaixa às suas demandas"",""Você não suporta mais as aulas de Estatística e lembrou que a matéria não é requisito para nada... ESCOLHA:                                           A - Trancar/excluir a matéria                                                                                                                                                                     B - Continuar e não estudar, correndo risco de reprovar                                                                                                                          C - Estudar bastante p/ passar e não ter que lidar com essa matéria de novo"",""Você esta concorrendo para uma vaga de estágio de 6h semanais e para uma bolsa de Iniciação Cientifica de 4h semanais. Descobriu que passou em ambas, como você irá proceder?!"
+A - fazer a IC e conseguir creditos de ACC
+B - fazer o estágio e não conseguir passar em 3 matérias
+"C - não conseguir se decidir e perder os prazos de resposta"",,,,"
+"4,""Ohh não!! PANDEMIA, logo, a USP terá EaD! O que fazer?             A - Trancar  o curso                                                                                       -(Se tirar maior que 3: Você se livrou do EaD e conseguiu voltar para o curso e terminá-lo tranquilamente)                                     -(Se tirar menor ou igual a 3: A pandemia durou muitos anos e você passou do limite de semestres para concluir o curso, ou seja: foi expulso!)                                                                                             B - Desistir da faculdade                                                                    C - Continuar na graduação                                                                -(Se tirar maior ou igual a 2: Deu tudo certo! Você se deu bem no EaD e agora poderá terminar o curso no tempo mínimo/máximo)       -(Se tirar 1: Vish! Deu ruim no EaD e você pegou algumas DPs em matérias que são requisito... Volte ao início do jogo!)"",""DECIDA-SE: Famlia X Sono X Faculdade!!"
+Você tem uma prova muito dificil após o domingo de dia das mães e não conseguiu estudar durante a semana porque teve outras provas muito dificeis, escolha entre:
+A - Ir para casa visitar a sua mamãe, não estudar e nem descansar para a prova
+B - Dormir o final de semana inteiro, estar descansada(o) para a prova porém inseguro sobre suas capacidades
+"C - Estudar o final de semana interio, ficar cansado e triste por não ter ido ver sua family!!"",""GRADUAÇÃO x EXTRACURRICULARES"
+Você está chegando ao final do 3 semestre e ainda não conclui nenhum crédito de ACC e ainda reprovou em 3 matérias nos últimos 2 semestres. Escolha:
+A - Fazer extracurriculares para espairecer 
+B - Ignorar as extracurriculares
+"C - Fazer uma extra e refazer uma matéria, além das demais, sem pressa e com dedicação "",""ALERTA!! professor babaca!! o que fazer?!"
+A - Trancar a matéria e esperar para tê-la com outro professor
+B - manter a plenitude mesmo querendo esganá-lo por dentro
+"C - Demosntrar o seu desgosto e aceitar as consequências!!"",,,,"
+"5,,,""BURNOUT!!! Infelizmente você não soube administrar sua vida universitária e ficou doente!! Escolha: "
+A - Continuar a graduação e dar um jeito de melhorar
+- (Se tirar igual ou maior a 5: Você melhorou e deu conta de melhorar ao mesmo tempo. Parabéns, guerreiro(a)!)
+- (Se tirar 3 ou 4: Você está ainda mais doente mas conseguiu passar nas matérias necessárias. Mas se cuida, hein?)
+- (Se  tirar 1 ou 2: Vish, sua estratégia não deu certo... Você foi expulso e continua doente :( Volte ao início do jogo...)
+B - Trancar o curso por um tempo e frequentar o psicólogo
+- (Se  tirar maior ou igual a 4: Sua estratégia deu certo! Você se recuperou, voltou ao curso e conseguiu finalizar a graduação. Parabéns!!)
+- (Se tirar menor ou igual a 3: Vish, você não se recuperou a tempo... Voltei ao início do jogo.)
+"C - Desistir da graduação"",,,,,"
+"6,""EEEH PANDEMIA!! por conta das aulas online você conseguiu fazer 2 semestres em 1, avance para o próximo semestre"",,,,,,,"
+7,,,,,,,,
+8,,,,,,,,
