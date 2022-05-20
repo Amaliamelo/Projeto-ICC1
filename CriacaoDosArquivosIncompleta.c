@@ -110,7 +110,7 @@ int iniciar(){
             }
 
         //FIM DO BLOCO DO ARQUIVO
-        
+
 
         /*
         Testando o arquivo, leitura e escrita
@@ -142,9 +142,9 @@ void sair(){
 }
 
 int MenuRodadas(){
-	
+
 	int EscolhaJogador;
-	
+
     do{
         fprintf(stdout,"1 - Nova Rodada, 2 - Salvar e sair, 3 - Sair\n");
         fprintf(stdout,"LEMBRE-SE: a opcao 3 nao salvara o seu percurso até aqui \n");
@@ -159,16 +159,16 @@ int MenuRodadas(){
         break;
 
     }while(EscolhaJogador != 3);
-    
+
     return 0;
 
 }
-
+//EM ANDAMENTO --- NÃO ESTÁ PRONTO
 int NovaRodada(){
-	
+
 	int dado;
-	
+
 	srand(time(NULL));
-	
+
 	dado = rand()%7;
 }
