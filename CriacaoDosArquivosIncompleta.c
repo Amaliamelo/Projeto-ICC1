@@ -2,7 +2,12 @@
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
+#include <locale.h>
 
+/* escrever as situaçãoes e os ids de cada uma delas em arquivo .csv
+cada linha vai ter uma situação
+determinar um limitador para saber onde para a situação e onde começa ou não as opções
+*/
 
 
 int MenuInicial();
@@ -11,13 +16,36 @@ int continuar();
 void sair();
 int MenuRodadas();
 int NovaRodada();
+int Salvar_Sair();
+
 //função principal
 int main (){
+
+    //criando tabuleiro
+    int tabuleiro[8][4], cont=0;
+     for(int i=0;i<8;i++){
+        for(int j=0;j<4;j++){
+            tabuleiro[i][j]=cont++;
+        }
+     }
+    /////
+    setlocale (LC_ALL,"Portuguese");
+
     int x = MenuInicial();
-    printf("Você escolheu %d\n", x);
+
     if (x==1){
     	iniciar();
-    	MenuRodadas();
+    	int op = MenuRodadas();
+    	if(op==1){
+            NovaRodada(tabuleiro);
+    	}else{
+    	    if(x==2){
+                Salvar_Sair();
+            }
+            else{
+                sair();
+            }
+    	}
 	}
 	else{
 		if(x==2){
@@ -37,7 +65,7 @@ int MenuInicial(){
     */
     int EscolhaJogador;
     do{
-        fprintf(stdout,"1 - Iniciar, 2 - Continuar, 3 - sair\n");
+        fprintf(stdout,"1 - Iniciar 2 - Continuar 3 - sair\n");
         fprintf(stdout,"Digite sua escolha: ");
         scanf("%d", &EscolhaJogador); //armazenando a escolha
         if(EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
@@ -67,10 +95,24 @@ int iniciar(){
     printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
     scanf("%d", &ConfirmacaoDoNomeUsuario);
 
+    //verificando se o nome está de acordo com o que o usuario quer
+    while(ConfirmacaoDoNomeUsuario != 1){
+            printf("Informe um novo nome: \n");
+            scanf("%s", NomeUsuario);
+            printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
+            scanf("%d", &ConfirmacaoDoNomeUsuario);
+
+    }
+    /////////
+
+    //Verificando se a confirmação é valida
    	while(ConfirmacaoDoNomeUsuario != 1 && ConfirmacaoDoNomeUsuario != 2){
 	 	printf("Valor incorreto, digite novamente\n");
 	 	scanf("%d", &ConfirmacaoDoNomeUsuario);
 	}
+	//////
+
+
 	//criacao do Id do usuario para evitar repeticoes
 	/*int IdUsuario = 10;
     char IdUsuarioChar = (IdUsuario + '0');
@@ -126,10 +168,6 @@ int iniciar(){
         fclose(arq_usuario);*/
         // FIM DO BLOCO DE TESTE
     }
-	else{
-
-	}
-
     return ;
 }
 
@@ -141,12 +179,13 @@ void sair(){
     exit(0);
 }
 
+//Menu que aparecerá ao final de cada rodade
 int MenuRodadas(){
 
 	int EscolhaJogador;
 
     do{
-        fprintf(stdout,"1 - Nova Rodada, 2 - Salvar e sair, 3 - Sair\n");
+        fprintf(stdout,"\n 1 - Nova Rodada, 2 - Salvar e sair 3 - Sair\n");
         fprintf(stdout,"LEMBRE-SE: a opcao 3 nao salvara o seu percurso até aqui \n");
         fprintf(stdout,"\n Digite sua escolha: ");
         scanf("%d", &EscolhaJogador); //armazenando a escolha
@@ -163,12 +202,28 @@ int MenuRodadas(){
     return 0;
 
 }
-//EM ANDAMENTO --- NÃO ESTÁ PRONTO
-int NovaRodada(){
 
-	int dado;
+
+//EM ANDAMENTO --- NÃO ESTÁ PRONTO
+int NovaRodada(int tabuleiro[8][4]){
+
+    //pegar semestre, pontuação e rodada
+	int dado, semestre,pontuacao,situacao;
 
 	srand(time(NULL));
 
-	dado = rand()%7;
+
+
+	while(dado!=0&&dado!=5){
+        dado = rand()%5;
+	}
+
+    situacao=tabuleiro[semestre][dado];
+
+    //puxar situação do arquivo
+}
+
+//NÃO TA PRONTO....FALTA ARQUIVO
+int Salvar_Sair(){
+    return(0);
 }
