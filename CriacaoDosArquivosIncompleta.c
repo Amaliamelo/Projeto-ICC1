@@ -27,7 +27,8 @@ int main (){
     
     for(i=0;i<8;i++){
         for(j=0;j<4;j++){
-            tabuleiro[i][j]=cont++;
+        	cont++;
+            tabuleiro[i][j]=cont;
         }
      }
     /////
@@ -97,55 +98,37 @@ int iniciar(){
     printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
     scanf("%d", &ConfirmacaoDoNomeUsuario);
 
-    //verificando se o nome está de acordo com o que o usuario quer
-    while(ConfirmacaoDoNomeUsuario != 1){
-            printf("Informe um novo nome: \n");
-            scanf("%s", NomeUsuario);
-            printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
-            scanf("%d", &ConfirmacaoDoNomeUsuario);
-
-    }
-    /////////
-
-    //Verificando se a confirmação é valida
    	while(ConfirmacaoDoNomeUsuario != 1 && ConfirmacaoDoNomeUsuario != 2){
 	 	printf("Valor incorreto, digite novamente\n");
 	 	scanf("%d", &ConfirmacaoDoNomeUsuario);
 	}
-	//////
 
+    FILE *TestandoNomeUsuario;
 
-	//criacao do Id do usuario para evitar repeticoes
-	/*int IdUsuario = 10;
-    char IdUsuarioChar = (IdUsuario + '0');
-    printf("%s",IdUsuarioChar);*/
-    FILE *ArquivoUsuarioBase, *ArquivoUsuarioUnico;
-    int ContadorUsuarios = 1;
-    char player[256];
     if(ConfirmacaoDoNomeUsuario==1){
-		/*
-            ArquivoUsuarioBase=fopen("BaseUsuarios.txt","w+");
-
-            if(ArquivoUsuarioBase == NULL){
-                printf("Deu ruim ao abrir o ArquivoUsuarioBase\n");
-                exit(0);
-            }
-
-            fseek(ArquivoUsuarioBase,0,SEEK_SET);
-            fprintf(ArquivoUsuarioBase,"UltimoUsuario = %d\n", ContadorUsuarios);
-            fprintf(ArquivoUsuarioBase,"Primeiro Usuario = 1\n");
-            fprintf(ArquivoUsuarioBase,"player_\n");
-            fclose(ArquivoUsuarioBase);
-            //TESTANDO AINDA
-            strcat("player_",ContadorUsuarios);
+            /*
+                Criacao dos arquivos e vereficação de repetição realizada
+                parte de arquivos dos usuarios está pronta
+                falta: Revisionar com os membros do grupo e upar pra main
+            */
+            strcat(NomeUsuario,".txt");
+            strcpy(nome_confirmado,NomeUsuario);
+            TestandoNomeUsuario=fopen(nome_confirmado,"r");
+        if(TestandoNomeUsuario != NULL){
+            do{
+             printf("Digite outro nome: ");
+             scanf("%s", NomeUsuario);
+             strcat(NomeUsuario,".txt");
+             strcpy(nome_confirmado,NomeUsuario);
+             TestandoNomeUsuario=fopen(nome_confirmado,"r");
+             if(TestandoNomeUsuario== NULL)
+                break;
+            }while(TestandoNomeUsuario != NULL);
+        }
+        //Criacao do arquivo utilizando o nome do usuario
             arq_usuario=fopen(nome_confirmado,"w+");
 
-            ArquivoUsuarioUnico=open(player_%d,"w+");
-                //FIM FASE DE TESTE
-       */
-        //Criacao do arquivo utilizando o nome do usuario
 
-            strcpy(nome_confirmado,strcat(NomeUsuario,".txt"));
             arq_usuario=fopen(nome_confirmado,"w+");
 
             if(arq_usuario == NULL){
@@ -153,24 +136,12 @@ int iniciar(){
                 exit(0);
             }
 
-        //FIM DO BLOCO DO ARQUIVO
-
-
-        /*
-        Testando o arquivo, leitura e escrita
-        NÃO RETIRA O FSEEK, POR FAVOR
-        Esse bloco foi para teste do arquivo
-        */
-
-        /*char testando[256];
-        fprintf(arq_usuario,"%s","CafeÉLindo");
-        fseek(arq_usuario,0,SEEK_SET);
-        fscanf(arq_usuario,"%s",testando);
-        printf("%s",testando);
-        fclose(arq_usuario);*/
-        // FIM DO BLOCO DE TESTE
     }
-    return ;
+	else{
+
+	}
+
+    return 0;
 }
 
 int continuar(){
@@ -210,15 +181,15 @@ int MenuRodadas(){
 int NovaRodada(int tabuleiro[8][4]){
 
     //pegar semestre, pontuação e rodada
-	int dado, semestre =1 ,pontuacao;
+	int dado, semestre = 1 ,pontuacao;
 	int situacao;
 
 	srand(time(NULL));
 	
-	dado = rand()%5;
+	dado = rand()%4;
 	//FAZENDO O DADO NÃO CAIR EM NUMEROS QUE NÃO VÃO EXISTIR
-	while(dado==0||dado==5){
-        dado = rand()%5;
+	while(dado==4){
+        dado = rand()%4;
 	}
 	
 	//Pesquisando no Arquivo 
@@ -233,18 +204,32 @@ int NovaRodada(int tabuleiro[8][4]){
 		char string;
 		
 		//	POSIÇÃO DO PERSONAGEM NO TABULEIRO
-		situacao=tabuleiro[semestre][dado]; 
+		situacao=tabuleiro[semestre][2]; 
+
 		
-		//strcpy(situacao,strcat("",""));
-		
+		int ComparadorIndicador=0; //numero em que sera realizada a comparação com situação
 		//percorre todo o arquivo
 		while((string = fgetc(ArquivoSituacoes)) != EOF){
-			if(string == strcpy(situacao,strcat("",""))){
-				fscanf(ArquivoSituacoes, "%s", &texto_situacao);
-			}
-		}
 		
-		fprintf(stdout,"%s", texto_situacao);
+			//setlocale (LC_ALL,"Portuguese");
+
+			fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador);
+			int i =0;
+			if(ComparadorIndicador==situacao){
+				//situacao++;
+				
+				//escrevendo situação e suas alternativas, caso hour ---PROBLEMAA---
+				while(texto_situacao[i]!=","){
+					fscanf(ArquivoSituacoes, "%c", &texto_situacao[i]);
+					fprintf(stdout, "%c", texto_situacao[i]);
+					i++;
+				}
+			
+                 
+				break;
+			}
+
+		}
 		
 	}
    
