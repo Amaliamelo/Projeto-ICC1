@@ -1,61 +1,61 @@
 ﻿1 OHHHH NAOOO!!! Voce vai ter aula de Geometria Analitica com um professor ruim, boa sorte.
-(Se tirar maior ou igual a 4 no dado: Você passou na matéria sem muitas dificuldades)
-(Se tirar menor ou igual a 3 no dado: Você pegou DP na matéria...)
+(Se tirar maior ou igual a 4 no dado: Você passou na materia sem muitas dificuldades)
+(Se tirar menor ou igual a 3 no dado: Você pegou DP na materia...)|
 
-2 Você deu sorte! A P1 de Matemática Discreta será online... continue plenamente
+2 Voce deu sorte! A P1 de Matematica Discreta sera online... continue plenamente|
 
-3 O projeto semestral de ICC1 deverá ser feito em 4 semanas e você terá outros 3 projetos para fazer, decida:
+3 O projeto semestral de ICC1 devera ser feito em 4 semanas e voce tera outros 3 projetos para fazer, decida:
 A - Fazer um jogo de RPG
 B - Fazer um banco de dados de um supermercado
-C - Fazer um jogo da velha
+C - Fazer um jogo da velha|
 
-4 Parabéns! Você terá aula de sistemas digitais neste semestre. O professor é ótimo! Mas boa sorte em utilizar o programa de compilação para a placa lógica.
-(Se tirar maior ou igual a 4 no dado: Você passou na matéria sem muitas dificuldades)
-(Se tirar menor ou igual a 3 no dado: Você não seguiu o pdf do professor e pegou DP por queimar a placa)
+4 Parabens! Voce tera aula de sistemas digitais neste semestre. O professor e otimo! Mas boa sorte em utilizar o programa de compilacao para a placa logica.
+(Se tirar maior ou igual a 4 no dado: Voce passou na materia sem muitas dificuldades)
+(Se tirar menor ou igual a 3 no dado: Voce não seguiu o pdf do professor e pegou DP por queimar a placa)|
 
-5 Não conseguiu atingir a média suficiente para passar em 3 matérias do 1º semestre, escolha:
+5 Nao conseguiu atingir a media suficiente para passar em 3 materias do 1º semestre, escolha:
 A - tentar fazer todas no 2º semestre
 B - fazer 1 em cada um dos proximos semestres
-C - desistir do curso.
+C - desistir do curso|
 
-6 Você não participou da semana de recepção e nem procurou se integrar com seus colegas de sala no primeiro semestre...agora precisa fazer um longo projeto e está sozinho, o que fazer?
+6 Voce nao participou da semana de recepcao e nem procurou se integrar com seus colegas de sala no primeiro semestre...agora precisa fazer um longo projeto e esta sozinho, o que fazer?
 A - continuar sozinho, sou autosuficiente
 B - Ir nas festas e interagir
-C - não fazer o projeto.
+C - nao fazer o projeto|
 
 7 A P1 de calculo sera no dia de uma festa muito esperada, o que fazer:
 A - ir a festa
 B - estudar
-C - nao ir a festa e nao conseguir estudar por estar querendo ir a festa,
+C - nao ir a festa e nao conseguir estudar por estar querendo ir a festa|
 	
-8 Bem vindo a vida de adulto!! Decida: ir a uma festa que vale 25 bandecos ou recarregar o cartão?!
+8 Bem vindo a vida de adulto!! Decida: ir a uma festa que vale 25 bandecos ou recarregar o cartao?!
 A - ir à festa e passar 25 dias fazendo jejum intermitente
-B - Recarregar o cartão e entrar em depressão por não ter ido na festa
-C - Recarregar o cartão e dormir no dia da festa
+B - Recarregar o cartao e entrar em depressao por nao ter ido na festa
+C - Recarregar o cartao e dormir no dia da festa|
 
-9 Vish!!! Você não entende as aulas de teoria da computação e fica sempre boiando na sala, como irá proceder?  
+9 Vish!!! Voca nao entende as aulas de teoria da computacao e fica sempre boiando na sala...como ira proceder?  
 A - Tentar estudar com os inteligentes
-B - Ir pra festa e se divertir já que não entende mesmo
+B - Ir pra festa e se divertir ja que nao entende mesmo|
 
-10 ESTAGIO!! Você precisa encontrar uma vaga de estágio que lhe ajude a pagar as contas e continuar na graduação, como proceder?!
-A - Esperar cair do céu ou o ICMC lhe encaminhar
-B - Atualizar seu Linkedin e curriculos diversos e encaminhá-los enlouquecidamente
-C - Analisar vaga a vaga com atenção para ver se ela se encaixa às suas demandas
+10 ESTAGIO!! Voce precisa encontrar uma vaga de estagio que lhe ajude a pagar as contas e continuar na graduacao, como proceder?!
+A - Esperar cair do ceu ou o ICMC lhe encaminhar
+B - Atualizar seu Linkedin e curriculos diversos e encaminha-los enlouquecidamente
+C - Analisar vaga a vaga com atenção para ver se ela se encaixa as suas demandas|
 
-11 Voce não suporta mais as aulas de Estatística e lembrou que a matéria não é requisito para nada... ESCOLHA:
+11 Voce nao suporta mais as aulas de Estatística e lembrou que a mataria nao e requisito para nada... ESCOLHA:
 A - fazer a IC e conseguir creditos de ACC
-B - fazer o estágio e não conseguir passar em 3 matérias
-C - não conseguir se decidir e perder os prazos de resposta
+B - fazer o estagio e não conseguir passar em 3 materias
+C - não conseguir se decidir e perder os prazos de resposta|
 
-12 Você tem uma prova muito dificil após o domingo de dia das mães e não conseguiu estudar durante a semana porque teve outras provas muito dificeis, escolha entre:
-A - Ir para casa visitar a sua mamãe, não estudar e nem descansar para a prova
+12 Voce tem uma prova muito dificil apos o domingo de dia das maes e nao conseguiu estudar durante a semana porque teve outras provas muito dificeis, escolha entre:
+A - Ir para casa visitar a sua mamae, nao estudar e nem descansar para a prova
 B - Dormir o final de semana inteiro, estar descansada(o) para a prova porém inseguro sobre suas capacidades
-C - Estudar o final de semana interio, ficar cansado e triste por não ter ido ver sua family!!
+C - Estudar o final de semana interio, ficar cansado e triste por nao ter ido ver sua family!!|
 
-13 GRADUAÇÃO x EXTRACURRICULARES: Você está chegando ao final do 3 semestre e ainda não conclui nenhum crédito de ACC e ainda reprovou em 3 matérias nos últimos 2 semestres. Escolha:
+13 GRADUACAO x EXTRACURRICULARES: Voce esta chegando ao final do 3 semestre e ainda nao conclui nenhum credito de ACC e ainda reprovou em 3 materias nos últimos 2 semestres. Escolha:
 A - Fazer extracurriculares para espairecer
 B - Ignorar as extracurriculares
-C - Fazer uma extra e refazer uma matéria, além das demais, sem pressa e com dedicação 
+C - Fazer uma extra e refazer uma materia, alem das demais, sem pressa e com dedicacao|
 
 
 

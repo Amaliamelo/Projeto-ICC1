@@ -4,11 +4,6 @@
 #include <stdlib.h>
 #include <locale.h>
 
-/* escrever as situaçãoes e os ids de cada uma delas em arquivo .csv
-cada linha vai ter uma situação
-determinar um limitador para saber onde para a situação e onde começa ou não as opções
-*/
-
 
 int MenuInicial();
 int iniciar();
@@ -200,30 +195,42 @@ int NovaRodada(int tabuleiro[8][4]){
 	ArquivoSituacoes=fopen("situacoes.txt","r");
 	
 	if(ArquivoSituacoes!=NULL){
-		char texto_situacao[256];
+		char texto_situacao[300];
 		char string;
 		
 		//	POSIÇÃO DO PERSONAGEM NO TABULEIRO
-		situacao=tabuleiro[semestre][2]; 
+		situacao=tabuleiro[semestre][dado]; 
+		
+		setlocale (LC_ALL,"Portuguese");
 
 		
 		int ComparadorIndicador=0; //numero em que sera realizada a comparação com situação
 		//percorre todo o arquivo
 		while((string = fgetc(ArquivoSituacoes)) != EOF){
 		
-			//setlocale (LC_ALL,"Portuguese");
 
-			fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador);
-			int i =0;
-			if(ComparadorIndicador==situacao){
+			fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador); //procurando o id da situação no arquivo
+			
+			int i = -1;//contador do vetor
+			
+			if(ComparadorIndicador==situacao){///quando id da situação for entrado, faça:
 				//situacao++;
 				
-				//escrevendo situação e suas alternativas, caso hour ---PROBLEMAA---
-				while(texto_situacao[i]!=","){
+				//escrevendo situação e suas alternativas, caso haja uma "|'
+				do{
+					i++;
+					fscanf(ArquivoSituacoes, "%c", &texto_situacao[i]);
+					printf("%c", texto_situacao[i]);
+					
+				}while(texto_situacao[i] != '|' );
+				
+				
+				//lendo pelo tamanho do texto situação
+				/*for(i=0;i<256;i++){
 					fscanf(ArquivoSituacoes, "%c", &texto_situacao[i]);
 					fprintf(stdout, "%c", texto_situacao[i]);
-					i++;
-				}
+					
+				}*/
 			
                  
 				break;
