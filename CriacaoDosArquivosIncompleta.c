@@ -13,7 +13,6 @@ int MenuRodadas();
 int NovaRodada();
 int Salvar_Sair();
 
-
 //fun��o principal
 int main (){
 
@@ -126,20 +125,9 @@ int CriarArquivoUsuario(int ConfirmacaoNome,char NomeUsuario[256]){
         }
         //Criacao do arquivo utilizando o nome do usuario
             arq_usuario=fopen(nome_confirmado,"w+");
-
-            if(arq_usuario == NULL){
-                printf("Deu ruim ao abrir o arquivo usuario\n");
-                exit(0);
-            }
-        }
-        else if(ConfirmacaoNome==2){
-            printf("Começando novamente!\n");
-            iniciar();
-        }
+    }
     return 0;
 }
-
-
 //Fun��o Iniciar
 int iniciar(){
 
@@ -289,20 +277,17 @@ int NovaRodada(int tabuleiro[8][4]){
 					fprintf(stdout, "%c", texto_situacao[i]);
 					
 				}*/
-                 
-				break;
 			}
 
 		}
         int QuantidadeDeRodada=0;
         QuantidadeRodada(QuantidadeDeRodada);
         QuantidadeDeRodada++;
-		
-	}
- return 0;  
+    }
+    
+    return 0;  
 }
-
 //N�O TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair(){
-    return(0);
+    return 0;
 }
