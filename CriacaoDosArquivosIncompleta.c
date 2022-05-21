@@ -23,15 +23,9 @@ int main() {
     if (x == 1) {
         iniciar();
         int opcaoDoJogador = MenuRodadas();
-
-        while (opcaoDoJogador != 3) {
-            if (opcaoDoJogador == 1 && semestre <= 8) {
-                NovaRodada();
-                // Fica chamando o NovaRodada toda vez
-                opcaoDoJogador = MenuRodadas();
-                semestre++;
-            }
-        }
+       if(opcaoDoJogador==1)
+            NovaRodada();
+        
 
         if (x == 2)
 
@@ -58,7 +52,6 @@ int MenuInicial() {
     scanf("%d", &EscolhaJogador);
     if (EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
         return EscolhaJogador;
-
     do {
         fprintf(stdout, "Valor incorreto, digite novamente!\n");
         fprintf(stdout, "Digite sua escolha: ");
@@ -102,10 +95,6 @@ int CriarArquivoUsuario(int ConfirmacaoNome, char NomeUsuario[256]) {
                 strcat(NomeUsuario, ".txt");
 
                 TestandoNomeUsuario = fopen(NomeUsuario, "r");
-                if (TestandoNomeUsuario == NULL) {
-                    printf("TestandoNomeUsuario não abriu um arquivo");
-                    break;
-                }
             } while (TestandoNomeUsuario != NULL);
         }
         // Criacao do arquivo utilizando o nome do usuario
@@ -180,10 +169,7 @@ int MenuRodadas() {
     return 0;
 }
 
-int QuantidadeRodada(int QuantasRodadasForam) {
 
-    return 0;
-}
 
 // EM ANDAMENTO --- N�O EST� PRONTO
 int NovaRodada() {
@@ -210,7 +196,6 @@ int NovaRodada() {
     }
 
     // Pesquisando no Arquivo
-
     FILE *ArquivoSituacoes;
 
     ArquivoSituacoes = fopen("situacoes.txt", "r");
@@ -251,10 +236,6 @@ int NovaRodada() {
                 }*/
             }
         }
-
-        int QuantidadeDeRodada = 0;
-        QuantidadeRodada(QuantidadeDeRodada);
-        QuantidadeDeRodada++;
     }
     return 0;
 }
