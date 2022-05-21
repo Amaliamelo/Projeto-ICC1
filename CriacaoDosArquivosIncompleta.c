@@ -13,7 +13,6 @@ int MenuRodadas();
 int NovaRodada();
 int Salvar_Sair();
 
-
 //fun��o principal
 int main (){
 
@@ -107,7 +106,7 @@ int ehNomeValido(char*nomeUsuario){
 int CriarArquivoUsuario(int ConfirmacaoNome,char NomeUsuario[256]){
 	char nome_confirmado[256];
     FILE *TestandoNomeUsuario;
-    FILE * arq_usuario;
+    FILE *arq_usuario;
 
     if(ConfirmacaoNome==1){
             strcat(NomeUsuario,".txt");
@@ -120,26 +119,22 @@ int CriarArquivoUsuario(int ConfirmacaoNome,char NomeUsuario[256]){
              strcat(NomeUsuario,".txt");
              strcpy(nome_confirmado,NomeUsuario);
              TestandoNomeUsuario=fopen(nome_confirmado,"r");
-             if(TestandoNomeUsuario== NULL)
+             if(TestandoNomeUsuario== NULL){
+                printf("TestandoNomeUsuario não abriu um arquivo");
                 break;
+             }
             }while(TestandoNomeUsuario != NULL);
         }
         //Criacao do arquivo utilizando o nome do usuario
-            arq_usuario=fopen(nome_confirmado,"w+");
-
-            if(arq_usuario == NULL){
-                printf("Deu ruim ao abrir o arquivo usuario\n");
-                exit(0);
-            }
+        arq_usuario=fopen(nome_confirmado,"w+");
         }
-        else if(ConfirmacaoNome==2){
-            printf("Começando novamente!\n");
-            iniciar();
-        }
+    
+    else if(ConfirmacaoNome==2){
+        printf("Iniciando Novamente!\n");
+        iniciar();
+}
     return 0;
 }
-
-
 //Fun��o Iniciar
 int iniciar(){
 
@@ -162,34 +157,6 @@ int iniciar(){
 	 	scanf("%d", &ConfirmacaoDoNomeUsuario);
 	}
     CriarArquivoUsuario(ConfirmacaoDoNomeUsuario,NomeUsuario);
-
-    /*FILE *TestandoNomeUsuario;
-
-    if(ConfirmacaoDoNomeUsuario==1){
-            strcat(NomeUsuario,".txt");
-            strcpy(nome_confirmado,NomeUsuario);
-            TestandoNomeUsuario=fopen(nome_confirmado,"r");
-        if(TestandoNomeUsuario != NULL){
-            do{
-             printf("Digite outro nome: ");
-             scanf("%s", NomeUsuario);
-             strcat(NomeUsuario,".txt");
-             strcpy(nome_confirmado,NomeUsuario);
-             TestandoNomeUsuario=fopen(nome_confirmado,"r");
-             if(TestandoNomeUsuario== NULL)
-                break;
-            }while(TestandoNomeUsuario != NULL);
-        }
-        //Criacao do arquivo utilizando o nome do usuario
-            arq_usuario=fopen(nome_confirmado,"w+");
-
-            if(arq_usuario == NULL){
-                printf("Deu ruim ao abrir o arquivo usuario\n");
-                exit(0);
-            }
-            }
-            */
-
     return 0;
 }
 
@@ -265,8 +232,6 @@ int NovaRodada(int tabuleiro[8][4]){
 		int ComparadorIndicador=0; //numero em que sera realizada a compara��o com situa��o
 		//percorre todo o arquivo
 		while((string = fgetc(ArquivoSituacoes)) != EOF){
-		
-
 			fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador); //procurando o id da situa��o no arquivo
 			
 			int i = -1;//contador do vetor
@@ -289,20 +254,17 @@ int NovaRodada(int tabuleiro[8][4]){
 					fprintf(stdout, "%c", texto_situacao[i]);
 					
 				}*/
-                 
-				break;
 			}
-
-		}
+        }
         int QuantidadeDeRodada=0;
         QuantidadeRodada(QuantidadeDeRodada);
         QuantidadeDeRodada++;
-		
-	}
- return 0;  
+    }
+    return 0;  
 }
+
 
 //N�O TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair(){
-    return(0);
+    return 0;
 }
