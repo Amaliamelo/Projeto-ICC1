@@ -13,19 +13,9 @@ int MenuRodadas();
 int NovaRodada();
 int Salvar_Sair();
 
+int semestre=1;
 //fun��o principal
 int main (){
-
-    //criando tabuleiro
-    int tabuleiro[8][4], cont=0;
-    int i,j;
-    
-    for(i=0;i<8;i++){
-        for(j=0;j<4;j++){
-        	cont++;
-            tabuleiro[i][j]=cont;
-        }
-     }
     /////
     setlocale (LC_ALL,"Portuguese");
 
@@ -33,41 +23,45 @@ int main (){
 
     if (x==1){
     	iniciar();
-    	int op = MenuRodadas();
-    	if(op==1){
-            NovaRodada(tabuleiro);
-    	}else{
-    	    if(x==2){
-                Salvar_Sair();
+    	int opcaoDoJogador = MenuRodadas();
+    	
+        while(opcaoDoJogador!=3){
+            if(opcaoDoJogador ==1 && semestre <=8){
+                NovaRodada();
+                //Fica chamando o NovaRodada toda vez
+                opcaoDoJogador = MenuRodadas();
+                semestre++;
             }
-            else{
-                sair();
-            }
-    	}
+        }
+    
+        if(x==2)
+
+            Salvar_Sair();
+        
+        else
+            sair();
+            
+    	
 	}
 	else{
-		if(x==2){
+		if(x==2)
 			continuar();
-		}
-		else{
+            
+		else
 			sair();
-		}
 	}
     return 0;
 }
 
+
+
  //Menu Inicial
 int MenuInicial(){
-    /* Funcao Menu, nao recebe valor e retorna a escolha que o jogador realizar
-    pode ser: iniciar, continuar,sair
-    */
     int EscolhaJogador;
-    do{
         fprintf(stdout,"1 - Iniciar 2 - Continuar 3 - sair\n");
         fprintf(stdout,"Digite sua escolha: ");
-        scanf("%d", &EscolhaJogador); //armazenando a escolha
+        scanf("%d", &EscolhaJogador); 
         if(EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
-            // se a escolha for correta, retorna ela
             return EscolhaJogador;
         if(EscolhaJogador < 1 || EscolhaJogador > 3){
             do{
@@ -75,14 +69,10 @@ int MenuInicial(){
                 fprintf(stdout,"Digite sua escolha: ");
                 scanf("%d", &EscolhaJogador);
             }while(EscolhaJogador < 1 || EscolhaJogador > 3);
-        }
-        // se for incorreta, entra no loop ate ser digitada corretamente
-  
-    
-
-    }while(EscolhaJogador != 3);
-    return 0;
+        }   
+    return EscolhaJogador;
 }
+
     //funcao para verificar se o valor inserido é um caractere ou não
 int ehCaracter(char letra){
     if (((int) letra) >= 65 && ((int) letra) <= 90)
@@ -104,21 +94,19 @@ int ehNomeValido(char*nomeUsuario){
 }
 
 int CriarArquivoUsuario(int ConfirmacaoNome,char NomeUsuario[256]){
-	char nome_confirmado[256];
     FILE *TestandoNomeUsuario;
     FILE *arq_usuario;
 
     if(ConfirmacaoNome==1){
             strcat(NomeUsuario,".txt");
-            strcpy(nome_confirmado,NomeUsuario);
-            TestandoNomeUsuario=fopen(nome_confirmado,"r");
+            TestandoNomeUsuario=fopen(NomeUsuario,"r");
         if(TestandoNomeUsuario != NULL){
             do{
              printf("Digite outro nome: ");
              scanf("%s", NomeUsuario);
              strcat(NomeUsuario,".txt");
-             strcpy(nome_confirmado,NomeUsuario);
-             TestandoNomeUsuario=fopen(nome_confirmado,"r");
+            
+             TestandoNomeUsuario=fopen(NomeUsuario,"r");
              if(TestandoNomeUsuario== NULL){
                 printf("TestandoNomeUsuario não abriu um arquivo");
                 break;
@@ -126,7 +114,7 @@ int CriarArquivoUsuario(int ConfirmacaoNome,char NomeUsuario[256]){
             }while(TestandoNomeUsuario != NULL);
         }
         //Criacao do arquivo utilizando o nome do usuario
-        arq_usuario=fopen(nome_confirmado,"w+");
+        arq_usuario=fopen(NomeUsuario,"w+");
         }
     
     else if(ConfirmacaoNome==2){
@@ -150,6 +138,7 @@ int iniciar(){
         
     printf("Seu nome de usuario �: %s ", NomeUsuario);
     printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
+    printf("Digite sua escolha: ");
     scanf("%d", &ConfirmacaoDoNomeUsuario);
 
    	while(ConfirmacaoDoNomeUsuario != 1 && ConfirmacaoDoNomeUsuario != 2){
@@ -161,12 +150,19 @@ int iniciar(){
 }
 
 int continuar(){
-    return 0;
+    char NomeJogadorContinuar[256];
+    FILE *Continuar;
+    printf("Digite o Nome do Jogador: ");
+    scanf("%s",NomeJogadorContinuar);
+    strcat(NomeJogadorContinuar,".txt");
+    Continuar = fopen(NomeJogadorContinuar,"r");
+    if(Continuar == NULL){
+        printf("Jogador não encontrado!\n");
+        continuar();
+    }
+    NovaRodada();
 }
 
-void sair(){
-    exit(0);
-}
 
 //Menu que aparecer� ao final de cada rodade
 int MenuRodadas(){
@@ -198,10 +194,19 @@ int QuantidadeRodada(int QuantasRodadasForam){
 }
 
 //EM ANDAMENTO --- N�O EST� PRONTO
-int NovaRodada(int tabuleiro[8][4]){
+int NovaRodada(){
+    int tabuleiro[8][4], cont=0;
+    int i,j;
+    
+    for(i=0;i<8;i++){
+        for(j=0;j<4;j++){
+        	cont++;
+            tabuleiro[i][j]=cont;
+        }
+     }
 
     //pegar semestre, pontua��o e rodada
-	int dado, semestre = 1 ;//pontuacao;
+	int dado;//pontuacao;
 	int situacao;
 
 	srand(time(NULL));
@@ -256,13 +261,18 @@ int NovaRodada(int tabuleiro[8][4]){
 				}*/
 			}
         }
+
         int QuantidadeDeRodada=0;
         QuantidadeRodada(QuantidadeDeRodada);
         QuantidadeDeRodada++;
+
     }
     return 0;  
 }
 
+void sair(){
+    exit(0);
+}
 
 //N�O TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair(){
