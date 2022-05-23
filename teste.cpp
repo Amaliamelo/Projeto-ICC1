@@ -71,8 +71,8 @@ int ehCaracter(char letra) {
 }
 // funcao que verifica se o valor inserido é valido ou não
 int ehNomeValido(char *nomeUsuario) {
-	int i;
-    for (i = 0; i < strlen(nomeUsuario); i++) {
+
+    for (int i = 0; i < strlen(nomeUsuario); i++) {
         if (!ehCaracter(nomeUsuario[i])) {
             printf("O nome inserido não é valido, informe outro nome: ");
             return 0;
@@ -143,7 +143,7 @@ int continuar() {
         printf("Jogador não encontrado!\n");
         continuar();
     }
-    NovaRodada(NomeJogadorContinuar);
+    NovaRodada();
 }
 
 // Menu que aparecer? ao final de cada rodade
@@ -172,7 +172,7 @@ int MenuRodadas() {
 
 
 // EM ANDAMENTO --- N?O EST? PRONTO
-int NovaRodada(char Usuario[256]) {
+int NovaRodada() {
     int tabuleiro[8][4], cont = 0;
     int i, j;
 
@@ -185,21 +185,6 @@ int NovaRodada(char Usuario[256]) {
 
     // pegar semestre, pontua??o e rodada
     int dado; // pontuacao;
-    int pontuacao, semestre, qtd_rodadas;
-    
-    FILE * ArquivoUsuario;
-    ArquivoUsuario = fopen(Usuario,"r");
-    
-    fscanf(ArquivoUsuario, "%d", &pontuacao);
-    fscanf(ArquivoUsuario,"%d", &semestre);
-    fscanf(ArquivoUsuario,"%d", &qtd_rodadas);
-    
-    printf("\npontos: %d\n", pontuacao);
-    printf("semestre: %d\n", semestre);
-    printf("rodadas: %d\n", qtd_rodadas);
-    
-    
-    
     int situacao;
 
     srand(time(NULL));
