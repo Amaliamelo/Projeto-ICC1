@@ -1,3 +1,4 @@
+
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,7 +15,7 @@ int Salvar_Sair();
 int CriarArquivoUsuario();
 
 char NomeUsuario[256];
-int semestre = 1, pontuacao = 0, quantidadeRodadas = 0;
+int semestre = 0, pontuacao = 0, quantidadeRodadas = 0;
 // fun��o principal
 int main() {
     /////
@@ -170,6 +171,10 @@ int MenuRodadas() {
     return 0;
 }
 
+int escolhaJogadorRodada(){
+
+}
+
 // EM ANDAMENTO --- N�O EST� PRONTO
 int NovaRodada() {
     int tabuleiro[8][4], cont = 0;
@@ -196,6 +201,10 @@ int NovaRodada() {
 
     // Pesquisando no Arquivo
     FILE *ArquivoSituacoes;
+    FILE *lerSemestre;
+    lerSemestre =fopen(NomeUsuario,"r");
+
+    fscanf(lerSemestre,"%d %d %d",&semestre,&pontuacao,&quantidadeRodadas);
 
     ArquivoSituacoes = fopen("situacoes.txt", "r");
 
@@ -213,7 +222,7 @@ int NovaRodada() {
         // percorre todo o arquivo
         while ((string = fgetc(ArquivoSituacoes)) != EOF) {
             fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador); // procurando o id da situa��o no arquivo
-
+            printf("\n Situacao: %d Comparador: %d\n",situacao,ComparadorIndicador);
             int i = -1; // contador do vetor
 
             if (ComparadorIndicador == situacao) { /// quando id da situa��o for entrado, fa�a:
@@ -223,12 +232,17 @@ int NovaRodada() {
                 do {
                     i++;
                     fscanf(ArquivoSituacoes, "%c", &texto_situacao[i]);
+                    if(texto_situacao[i] == '|')
+                        break;
                     printf("%c", texto_situacao[i]);
                     fprintf(abreArquivoUsuario, "%c", texto_situacao[i]);
                 } while (texto_situacao[i] != '|');
                 printf("\n"); // Quebra de linha após a entrada da situação
-            }
+                break;
+
+
         }
+    }
     }
     return 0;
 }
