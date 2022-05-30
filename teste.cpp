@@ -11,9 +11,11 @@ void sair();
 int MenuRodadas();
 int NovaRodada();
 int Salvar_Sair();
+int CriarArquivoUsuario();
 
-int semestre = 1;
-// fun??o principal
+char NomeUsuario[256];
+int semestre = 1, pontuacao = 0, quantidadeRodadas = 0;
+// funï¿½ï¿½o principal
 int main() {
     /////
     setlocale(LC_ALL, "Portuguese");
@@ -23,9 +25,8 @@ int main() {
     if (x == 1) {
         iniciar();
         int opcaoDoJogador = MenuRodadas();
-       if(opcaoDoJogador==1)
+        if (opcaoDoJogador == 1)
             NovaRodada();
-        
 
         if (x == 2)
 
@@ -40,6 +41,58 @@ int main() {
 
         else
             sair();
+    }
+    return 0;
+}
+// Funï¿½ï¿½o Iniciar
+int iniciar() {
+    int ConfirmacaoDoNomeUsuario;
+
+    printf("Seja Bem - Vindo(a)!!! Digite seu nome de usuï¿½rio: ");
+    scanf("%s", NomeUsuario);
+
+    while (!ehNomeValido(NomeUsuario))
+        scanf("%s", NomeUsuario);
+
+    printf("Seu nome de usuario ï¿½: %s ", NomeUsuario);
+    printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
+    printf("Digite sua escolha: ");
+    scanf("%d", &ConfirmacaoDoNomeUsuario);
+
+    while (ConfirmacaoDoNomeUsuario != 1 && ConfirmacaoDoNomeUsuario != 2) {
+        printf("Valor incorreto, digite novamente\n");
+        scanf("%d", &ConfirmacaoDoNomeUsuario);
+    }
+    CriarArquivoUsuario(ConfirmacaoDoNomeUsuario, NomeUsuario);
+    FILE *ArquivoUsuario;
+    ArquivoUsuario = fopen(NomeUsuario, "w+");
+    fprintf(ArquivoUsuario, "Semestre: %d\nPontuacao: %d\nQuantidadeRodadas: %d\n", semestre, pontuacao, quantidadeRodadas);
+    return 0;
+}
+int CriarArquivoUsuario(int ConfirmacaoNome, char NomeUsuario[256]) {
+    FILE *TestandoNomeUsuario;
+    FILE *arq_usuario;
+
+    if (ConfirmacaoNome == 1) {
+        strcat(NomeUsuario, ".txt");
+        TestandoNomeUsuario = fopen(NomeUsuario, "r");
+        if (TestandoNomeUsuario != NULL) {
+            do {
+                printf("Digite outro nome: ");
+                scanf("%s", NomeUsuario);
+                strcat(NomeUsuario, ".txt");
+
+                TestandoNomeUsuario = fopen(NomeUsuario, "r");
+            } while (TestandoNomeUsuario != NULL);
+        }
+        // Criacao do arquivo utilizando o nome do usuario
+        arq_usuario = fopen(NomeUsuario, "w");
+
+    }
+
+    else if (ConfirmacaoNome != 1) {
+        printf("Iniciando Novamente!\n");
+        iniciar();
     }
     return 0;
 }
@@ -61,7 +114,7 @@ int MenuInicial() {
     return EscolhaJogador;
 }
 
-// funcao para verificar se o valor inserido é um caractere ou não
+// funcao para verificar se o valor inserido Ã© um caractere ou nÃ£o
 int ehCaracter(char letra) {
     if (((int)letra) >= 65 && ((int)letra) <= 90)
         return 1;
@@ -69,91 +122,39 @@ int ehCaracter(char letra) {
         return 1;
     return 0;
 }
-// funcao que verifica se o valor inserido é valido ou não
+// funcao que verifica se o valor inserido Ã© valido ou nÃ£o
 int ehNomeValido(char *nomeUsuario) {
 
     for (int i = 0; i < strlen(nomeUsuario); i++) {
         if (!ehCaracter(nomeUsuario[i])) {
-            printf("O nome inserido não é valido, informe outro nome: ");
+            printf("O nome inserido nÃ£o Ã© valido, informe outro nome: ");
             return 0;
         }
     }
     return 1;
 }
 
-int CriarArquivoUsuario(int ConfirmacaoNome, char NomeUsuario[256]) {
-    FILE *TestandoNomeUsuario;
-    FILE *arq_usuario;
-
-    if (ConfirmacaoNome == 1) {
-        strcat(NomeUsuario, ".txt");
-        TestandoNomeUsuario = fopen(NomeUsuario, "r");
-        if (TestandoNomeUsuario != NULL) {
-            do {
-                printf("Digite outro nome: ");
-                scanf("%s", NomeUsuario);
-                strcat(NomeUsuario, ".txt");
-
-                TestandoNomeUsuario = fopen(NomeUsuario, "r");
-            } while (TestandoNomeUsuario != NULL);
-        }
-        // Criacao do arquivo utilizando o nome do usuario
-        arq_usuario = fopen(NomeUsuario, "w+");
-    }
-
-    else if (ConfirmacaoNome == 2) {
-        printf("Iniciando Novamente!\n");
-        iniciar();
-    }
-    return 0;
-}
-// Fun??o Iniciar
-int iniciar() {
-
-    char NomeUsuario[256];
-    int ConfirmacaoDoNomeUsuario;
-
-    printf("Seja Bem - Vindo(a)!!! Digite seu nome de usu?rio: ");
-    scanf("%s", NomeUsuario);
-
-    while (!ehNomeValido(NomeUsuario))
-        scanf("%s", NomeUsuario);
-
-    printf("Seu nome de usuario ?: %s ", NomeUsuario);
-    printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
-    printf("Digite sua escolha: ");
-    scanf("%d", &ConfirmacaoDoNomeUsuario);
-
-    while (ConfirmacaoDoNomeUsuario != 1 && ConfirmacaoDoNomeUsuario != 2) {
-        printf("Valor incorreto, digite novamente\n");
-        scanf("%d", &ConfirmacaoDoNomeUsuario);
-    }
-    CriarArquivoUsuario(ConfirmacaoDoNomeUsuario, NomeUsuario);
-    return 0;
-}
-
 int continuar() {
-    char NomeJogadorContinuar[256];
     FILE *Continuar;
     printf("Digite o Nome do Jogador: ");
-    scanf("%s", NomeJogadorContinuar);
-    strcat(NomeJogadorContinuar, ".txt");
-    Continuar = fopen(NomeJogadorContinuar, "r");
+    scanf("%s", NomeUsuario);
+    strcat(NomeUsuario, ".txt");
+    Continuar = fopen(NomeUsuario, "r");
     if (Continuar == NULL) {
-        printf("Jogador não encontrado!\n");
+        printf("Jogador nÃ£o encontrado!\n");
         continuar();
     }
-    NovaRodada();
+    printf("Arquivo encontrado\n");
 }
 
-// Menu que aparecer? ao final de cada rodade
+// Menu que aparecerï¿½ ao final de cada rodade
 int MenuRodadas() {
 
     int EscolhaJogador;
 
     do {
         fprintf(stdout, "\n 1 - Nova Rodada, 2 - Salvar e sair 3 - Sair\n");
-        fprintf(stdout, "LEMBRE-SE: a opcao 3 nao salvara o seu percurso at? aqui \n");
+        fprintf(stdout, "LEMBRE-SE: a opcao 3 nao salvara o seu percurso atï¿½ aqui \n");
         fprintf(stdout, "\n Digite sua escolha: ");
         scanf("%d", &EscolhaJogador); // armazenando a escolha
         if (EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
@@ -165,13 +166,11 @@ int MenuRodadas() {
         break;
 
     } while (EscolhaJogador != 3);
-
+    semestre++;
     return 0;
 }
 
-
-
-// EM ANDAMENTO --- N?O EST? PRONTO
+// EM ANDAMENTO --- Nï¿½O ESTï¿½ PRONTO
 int NovaRodada() {
     int tabuleiro[8][4], cont = 0;
     int i, j;
@@ -183,14 +182,14 @@ int NovaRodada() {
         }
     }
 
-    // pegar semestre, pontua??o e rodada
+    // pegar semestre, pontuaï¿½ï¿½o e rodada
     int dado; // pontuacao;
     int situacao;
 
     srand(time(NULL));
 
     dado = rand() % 4;
-    // FAZENDO O DADO N?O CAIR EM NUMEROS QUE N?O V?O EXISTIR
+    // FAZENDO O DADO Nï¿½O CAIR EM NUMEROS QUE Nï¿½O Vï¿½O EXISTIR
     while (dado == 4) {
         dado = rand() % 4;
     }
@@ -203,36 +202,31 @@ int NovaRodada() {
     if (ArquivoSituacoes != NULL) {
         char texto_situacao[300];
         char string;
-
-        //	POSI??O DO PERSONAGEM NO TABULEIRO
+        FILE *abreArquivoUsuario;
+        abreArquivoUsuario = fopen(NomeUsuario, "a+");
+        //	POSIï¿½ï¿½O DO PERSONAGEM NO TABULEIRO
         situacao = tabuleiro[semestre][dado];
 
         setlocale(LC_ALL, "Portuguese");
 
-        int ComparadorIndicador = 0; // numero em que sera realizada a compara??o com situa??o
+        int ComparadorIndicador = 0; // numero em que sera realizada a comparaï¿½ï¿½o com situaï¿½ï¿½o
         // percorre todo o arquivo
         while ((string = fgetc(ArquivoSituacoes)) != EOF) {
-            fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador); // procurando o id da situa??o no arquivo
+            fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador); // procurando o id da situaï¿½ï¿½o no arquivo
 
             int i = -1; // contador do vetor
 
-            if (ComparadorIndicador == situacao) { /// quando id da situa??o for entrado, fa?a:
+            if (ComparadorIndicador == situacao) { /// quando id da situaï¿½ï¿½o for entrado, faï¿½a:
                 // situacao++;
 
-                // escrevendo situa??o e suas alternativas, caso haja uma "|'
+                // escrevendo situaï¿½ï¿½o e suas alternativas, caso haja uma "|'
                 do {
                     i++;
                     fscanf(ArquivoSituacoes, "%c", &texto_situacao[i]);
                     printf("%c", texto_situacao[i]);
-
+                    fprintf(abreArquivoUsuario, "%c", texto_situacao[i]);
                 } while (texto_situacao[i] != '|');
-                printf("\n"); // Quebra de linha após a entrada da situação
-
-                // lendo pelo tamanho do texto situa??o
-                /*for(i=0;i<256;i++){
-                    fscanf(ArquivoSituacoes, "%c", &texto_situacao[i]);
-                    fprintf(stdout, "%c", texto_situacao[i]);
-                }*/
+                printf("\n"); // Quebra de linha apÃ³s a entrada da situaÃ§Ã£o
             }
         }
     }
@@ -243,7 +237,7 @@ void sair() {
     exit(0);
 }
 
-// N?O TA PRONTO....FALTA ARQUIVO
+// Nï¿½O TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair() {
     return 0;
 }

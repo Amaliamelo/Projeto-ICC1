@@ -1,0 +1,3 @@
+Semestre: 1
+Pontuacao: 0
+QuantidadeRodadas: 0
