@@ -1,3 +1,4 @@
+
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,8 +15,7 @@ int Salvar_Sair();
 int CriarArquivoUsuario();
 
 char NomeUsuario[256];
-int semestre = 1, pontuacao = 0, quantidadeRodadas = 0;
-
+int semestre = 0, pontuacao = 0, quantidadeRodadas = 0;
 // funï¿½ï¿½o principal
 int main() {
     /////
@@ -29,7 +29,7 @@ int main() {
         if (opcaoDoJogador == 1)
             NovaRodada();
 
-        if (x == 2)
+        if (opcaoDoJogador == 2)
 
             Salvar_Sair();
 
@@ -115,7 +115,7 @@ int MenuInicial() {
     return EscolhaJogador;
 }
 
-// funcao para verificar se o valor inserido é um caractere ou não
+// funcao para verificar se o valor inserido Ã© um caractere ou nÃ£o
 int ehCaracter(char letra) {
     if (((int)letra) >= 65 && ((int)letra) <= 90)
         return 1;
@@ -123,18 +123,17 @@ int ehCaracter(char letra) {
         return 1;
     return 0;
 }
-// funcao que verifica se o valor inserido é valido ou não
+// funcao que verifica se o valor inserido Ã© valido ou nÃ£o
 int ehNomeValido(char *nomeUsuario) {
-	int i;
-    for (i = 0; i < strlen(nomeUsuario); i++) {
+
+    for (int i = 0; i < strlen(nomeUsuario); i++) {
         if (!ehCaracter(nomeUsuario[i])) {
-            printf("O nome inserido não é valido, informe outro nome: ");
+            printf("O nome inserido nÃ£o Ã© valido, informe outro nome: ");
             return 0;
         }
     }
     return 1;
 }
-
 
 int continuar() {
     FILE *Continuar;
@@ -143,23 +142,30 @@ int continuar() {
     strcat(NomeUsuario, ".txt");
     Continuar = fopen(NomeUsuario, "r");
     if (Continuar == NULL) {
-        printf("Jogador não encontrado!\n");
+        printf("Jogador nÃ£o encontrado!\n");
         continuar();
     }
-    else{
-		//MenuRodadas();
-	    printf("Arquivo encontrado\n");
-	}
+    //printf("Arquivo encontrado\n");
+    int opcaoDoJogador = MenuRodadas();
+    if (opcaoDoJogador == 1)
+        NovaRodada();
+
+    if (opcaoDoJogador == 2)
+
+        Salvar_Sair();
+
+    else
+        sair();
 }
 
-// Menu que aparecer? ao final de cada rodade
+// Menu que aparecerï¿½ ao final de cada rodade
 int MenuRodadas() {
 
     int EscolhaJogador;
 
     do {
         fprintf(stdout, "\n 1 - Nova Rodada, 2 - Salvar e sair 3 - Sair\n");
-        fprintf(stdout, "LEMBRE-SE: a opcao 3 nao salvara o seu percurso at? aqui \n");
+        fprintf(stdout, "LEMBRE-SE: a opcao 3 nao salvara o seu percurso atï¿½ aqui \n");
         fprintf(stdout, "\n Digite sua escolha: ");
         scanf("%d", &EscolhaJogador); // armazenando a escolha
         if (EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
@@ -171,12 +177,15 @@ int MenuRodadas() {
         break;
 
     } while (EscolhaJogador != 3);
-    semestre++;
+    //semestre++;
     return 0;
 }
 
+int escolhaJogadorRodada(){
 
-// EM ANDAMENTO --- N?O EST? PRONTO
+}
+
+// EM ANDAMENTO --- Nï¿½O ESTï¿½ PRONTO
 int NovaRodada() {
     int tabuleiro[8][4], cont = 0;
     int i, j;
@@ -187,57 +196,68 @@ int NovaRodada() {
             tabuleiro[i][j] = cont;
         }
     }
-    
 
-    // pegar semestre, pontua??o e rodada
+    // pegar semestre, pontuaï¿½ï¿½o e rodada
     int dado; // pontuacao;
     int situacao;
-    printf("cheguei1");
 
     srand(time(NULL));
 
     dado = rand() % 4;
-    // FAZENDO O DADO N?O CAIR EM NUMEROS QUE N?O V?O EXISTIR
+    // FAZENDO O DADO Nï¿½O CAIR EM NUMEROS QUE Nï¿½O Vï¿½O EXISTIR
     while (dado == 4) {
         dado = rand() % 4;
     }
 
     // Pesquisando no Arquivo
     FILE *ArquivoSituacoes;
+    FILE *lerSemestre;
+    lerSemestre =fopen(NomeUsuario,"r");
+
+    fscanf(lerSemestre,"%d %d %d",&semestre,&pontuacao,&quantidadeRodadas);
 
     ArquivoSituacoes = fopen("situacoes.txt", "r");
 
     if (ArquivoSituacoes != NULL) {
-		
         char texto_situacao[300];
         char string;
         FILE *abreArquivoUsuario;
         abreArquivoUsuario = fopen(NomeUsuario, "a+");
-        //	POSI??O DO PERSONAGEM NO TABULEIRO
+        //	POSIï¿½ï¿½O DO PERSONAGEM NO TABULEIRO
         situacao = tabuleiro[semestre][dado];
 
         setlocale(LC_ALL, "Portuguese");
 
-        int ComparadorIndicador = 0; // numero em que sera realizada a compara??o com situa??o
+        int ComparadorIndicador = 0; // numero em que sera realizada a comparaï¿½ï¿½o com situaï¿½ï¿½o
         // percorre todo o arquivo
         while ((string = fgetc(ArquivoSituacoes)) != EOF) {
-            fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador); // procurando o id da situa??o no arquivo
-
+            fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador); // procurando o id da situaï¿½ï¿½o no arquivo
+            //printf("\n Situacao: %d Comparador: %d\n",situacao,ComparadorIndicador); --TESTANDO
             int i = -1; // contador do vetor
 
-            if (ComparadorIndicador == situacao) { /// quando id da situa??o for entrado, fa?a:
+            if (ComparadorIndicador == situacao) { /// quando id da situaï¿½ï¿½o for entrado, faï¿½a:
                 // situacao++;
 
-                // escrevendo situa??o e suas alternativas, caso haja uma "|'
+                // escrevendo situaï¿½ï¿½o e suas alternativas, caso haja uma "|'
                 do {
                     i++;
                     fscanf(ArquivoSituacoes, "%c", &texto_situacao[i]);
+                    if(texto_situacao[i] == '|')
+                        break;
                     printf("%c", texto_situacao[i]);
                     fprintf(abreArquivoUsuario, "%c", texto_situacao[i]);
+
+                    /*fprintf(abreArquivoUsuario, "%d", semestre++);
+                    fprintf(abreArquivoUsuario, "%d", quatidadeRodadas++);*/
                 } while (texto_situacao[i] != '|');
-                printf("\n"); // Quebra de linha após a entrada da situação
-            }
+                printf("\n"); // Quebra de linha apÃ³s a entrada da situaÃ§Ã£o
+                fprintf(abreArquivoUsuario, "\n");
+                fclose(abreArquivoUsuario);
+                break;
+
+
         }
+    }
     }
     return 0;
 }
@@ -246,7 +266,9 @@ void sair() {
     exit(0);
 }
 
-// N?O TA PRONTO....FALTA ARQUIVO
+// Nï¿½O TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair() {
     return 0;
 }
+
+
