@@ -13,6 +13,7 @@ int NovaRodada();
 int Salvar_Sair();
 int CriarArquivoUsuario();
 
+
 char NomeUsuario[256];
 int semestre = 0, pontuacao = 0, quantidadeRodadas = 0;
 // fun��o principal
@@ -186,6 +187,45 @@ int escolhaJogadorRodada(){
 }
 
 // EM ANDAMENTO --- N�O EST� PRONTO
+int escolhaSituacao(){
+    int dadosituacao;
+    char escolhaJogadorSituacao;
+    scanf("%c", escolhaJogadorSituacao);
+    srand(time(NULL));
+
+    dadosituacao = rand() % 10;//para situacoes que precisam de um novo rand
+    if(escolhaJogadorSituacao == 'A'){
+        if(dadosituacao <= 7){
+            pontuacao+=20;
+            return 1;
+        }
+        else{
+            return 0;
+        }
+
+    }
+    else if(escolhaJogadorSituacao == 'B'){
+        if(dadosituacao <= 5){
+            pontuacao+=20;
+            return 1;
+        }
+        else{
+            return 0;
+        }
+
+    }
+    else if(escolhaJogadorSituacao == 'C'){
+        if(dadosituacao <= 3){
+            pontuacao+=20;
+            return 1;
+        }
+        else{
+            return 0;
+        }
+
+    }
+
+}
 int NovaRodada() {
     int tabuleiro[8][4], cont = 0;
     int i, j;
@@ -253,9 +293,16 @@ int NovaRodada() {
 
 
                 } while (texto_situacao[i] != '|');
-                printf("\n"); // Quebra de linha após a entrada da situação
+                printf("\n");// Quebra de linha após a entrada da situação
                 fprintf(abreArquivoUsuario, "\n");
 
+                int resultadoSituacao = escolhaSituacao();
+                if(resultadoSituacao == 1){
+                    printf("Você ganhou 20 pontos!\n");//avançou de semestre?
+                }
+                else{
+                    printf("Deu ruim, você....\n");
+                }
                 //TESTANDO COM FSEEK------------------------------
                 /*fseek(abreArquivoUsuario,10,SEEK_SET);
                 fprintf(abreArquivoUsuario, "%d", semestre+1);
@@ -276,6 +323,7 @@ void sair() {
 
 // N�O TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair() {
+    
     return 0;
 }
 
