@@ -1,4 +1,3 @@
-
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -67,7 +66,8 @@ int iniciar() {
     CriarArquivoUsuario(ConfirmacaoDoNomeUsuario, NomeUsuario);
     FILE *ArquivoUsuario;
     ArquivoUsuario = fopen(NomeUsuario, "w+");
-    fprintf(ArquivoUsuario, "Semestre: %d\nPontuacao: %d\nQuantidadeRodadas: %d\n", semestre, pontuacao, quantidadeRodadas);
+    fprintf(ArquivoUsuario, "Semestre: %d\nPontuacao: %d\nQuantidadeRodadas: %d\n", semestre,pontuacao, quantidadeRodadas);
+    fclose(ArquivoUsuario);
     return 0;
 }
 int CriarArquivoUsuario(int ConfirmacaoNome, char NomeUsuario[256]) {
@@ -197,8 +197,8 @@ int NovaRodada() {
         }
     }
 
-    // pegar semestre, pontua��o e rodada
-    int dado; // pontuacao;
+
+    int dado;
     int situacao;
 
     srand(time(NULL));
@@ -212,7 +212,7 @@ int NovaRodada() {
     // Pesquisando no Arquivo
     FILE *ArquivoSituacoes;
     FILE *lerSemestre;
-    lerSemestre =fopen(NomeUsuario,"r");
+    lerSemestre = fopen(NomeUsuario,"r");
 
     fscanf(lerSemestre,"%d %d %d",&semestre,&pontuacao,&quantidadeRodadas);
 
@@ -222,9 +222,13 @@ int NovaRodada() {
         char texto_situacao[300];
         char string;
         FILE *abreArquivoUsuario;
-        abreArquivoUsuario = fopen(NomeUsuario, "a+");
+        abreArquivoUsuario = fopen(NomeUsuario, "w+");
         //	POSI��O DO PERSONAGEM NO TABULEIRO
         situacao = tabuleiro[semestre][dado];
+
+        /*semestre++;
+        fprintf(abreArquivoUsuario, "Semestre: %d\nPontuacao: %d\nQuantidadeRodadas: %d\n", semestre,pontuacao, quantidadeRodadas);
+         */
 
         setlocale(LC_ALL, "Portuguese");
 
@@ -247,11 +251,15 @@ int NovaRodada() {
                     printf("%c", texto_situacao[i]);
                     fprintf(abreArquivoUsuario, "%c", texto_situacao[i]);
 
-                    /*fprintf(abreArquivoUsuario, "%d", semestre++);
-                    fprintf(abreArquivoUsuario, "%d", quatidadeRodadas++);*/
+
                 } while (texto_situacao[i] != '|');
                 printf("\n"); // Quebra de linha após a entrada da situação
                 fprintf(abreArquivoUsuario, "\n");
+
+                //TESTANDO COM FSEEK------------------------------
+                /*fseek(abreArquivoUsuario,10,SEEK_SET);
+                fprintf(abreArquivoUsuario, "%d", semestre+1);
+                fseek(abreArquivoUsuario,0,SEEK_END);---------------*/
                 fclose(abreArquivoUsuario);
                 break;
 
