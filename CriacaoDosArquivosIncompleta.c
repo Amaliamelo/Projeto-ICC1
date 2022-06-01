@@ -12,10 +12,11 @@ int MenuRodadas();
 int NovaRodada();
 int Salvar_Sair();
 int CriarArquivoUsuario();
-
+int escolhaSituacao();
+int jogoInteiro();
 
 char NomeUsuario[256];
-int semestre = 0, pontuacao = 0, quantidadeRodadas = 0;
+int semestre = 1, pontuacao = 0, quantidadeRodadas = 0;
 // fun��o principal
 int main() {
     /////
@@ -26,8 +27,10 @@ int main() {
     if (x == 1) {
         iniciar();
         int opcaoDoJogador = MenuRodadas();
+
         if (opcaoDoJogador == 1)
-            NovaRodada();
+        jogoInteiro();
+            //NovaRodada();
 
         if (opcaoDoJogador == 2)
 
@@ -44,6 +47,22 @@ int main() {
             sair();
     }
     return 0;
+}
+int jogoInteiro(){
+
+    NovaRodada();
+
+    //int escolha = MenuRodadas();
+    for(int i=0;i<7;i++){
+        NovaRodada();
+        escolha = MenuRodadas();
+        if(escolha == 1){
+
+        }
+    }
+
+    // MenuRodadas();
+    //NovaRodada
 }
 // Fun��o Iniciar
 int iniciar() {
@@ -190,7 +209,7 @@ int escolhaJogadorRodada(){
 int escolhaSituacao(){
     int dadosituacao;
     char escolhaJogadorSituacao;
-    scanf("%c", escolhaJogadorSituacao);
+    scanf("%s",&escolhaJogadorSituacao);
     srand(time(NULL));
 
     dadosituacao = rand() % 10;//para situacoes que precisam de um novo rand
@@ -226,6 +245,7 @@ int escolhaSituacao(){
     }
 
 }
+
 int NovaRodada() {
     int tabuleiro[8][4], cont = 0;
     int i, j;
@@ -255,14 +275,19 @@ int NovaRodada() {
     lerSemestre = fopen(NomeUsuario,"r");
 
     fscanf(lerSemestre,"%d %d %d",&semestre,&pontuacao,&quantidadeRodadas);
-
+    fclose(lerSemestre);
     ArquivoSituacoes = fopen("situacoes.txt", "r");
 
     if (ArquivoSituacoes != NULL) {
         char texto_situacao[300];
         char string;
         FILE *abreArquivoUsuario;
-        abreArquivoUsuario = fopen(NomeUsuario, "w+");
+        abreArquivoUsuario = fopen(NomeUsuario, "a");
+
+        if(abreArquivoUsuario == NULL){
+            printf("Deu treta\n");
+            exit(0);
+        }
         //	POSI��O DO PERSONAGEM NO TABULEIRO
         situacao = tabuleiro[semestre][dado];
 
@@ -291,23 +316,27 @@ int NovaRodada() {
                     printf("%c", texto_situacao[i]);
                     fprintf(abreArquivoUsuario, "%c", texto_situacao[i]);
 
-
                 } while (texto_situacao[i] != '|');
+
                 printf("\n");// Quebra de linha após a entrada da situação
                 fprintf(abreArquivoUsuario, "\n");
+                fclose(abreArquivoUsuario);
 
-                int resultadoSituacao = escolhaSituacao();
-                if(resultadoSituacao == 1){
-                    printf("Você ganhou 20 pontos!\n");//avançou de semestre?
+
+
+                if(escolhaSituacao() == 1){
+                   printf("Você ganhou 20 pontos!\n");//avançou de semestre?
                 }
                 else{
-                    printf("Deu ruim, você....\n");
+                    printf("Deu ruim, voce....\n");
                 }
-                //TESTANDO COM FSEEK------------------------------
-                /*fseek(abreArquivoUsuario,10,SEEK_SET);
-                fprintf(abreArquivoUsuario, "%d", semestre+1);
-                fseek(abreArquivoUsuario,0,SEEK_END);---------------*/
-                fclose(abreArquivoUsuario);
+
+                semestre+=1;
+                lerSemestre = fopen(NomeUsuario,"r+");
+                fseek(lerSemestre,10,SEEK_SET);
+                fprintf(lerSemestre, "%d", semestre);
+                fseek(lerSemestre,0,SEEK_END);
+                fclose(lerSemestre);
                 break;
 
 
@@ -323,7 +352,7 @@ void sair() {
 
 // N�O TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair() {
-    
+
     return 0;
 }
 

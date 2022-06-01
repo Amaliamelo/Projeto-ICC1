@@ -1,0 +1,14 @@
+Semestre: 4
+Pontuacao: 0
+QuantidadeRodadas: 0
+ A P1 de calculo sera no dia de uma festa muito esperada, o que fazer:
+A - ir a festa
+B - estudar
+C - nao ir a festa e nao conseguir estudar por estar querendo ir a festa
+ Vish!!! Voca nao entende as aulas de teoria da computacao e fica sempre boiando na sala...como ira proceder?  
+A - Tentar estudar com os inteligentes
+B - Ir pra festa e se divertir ja que nao entende mesmo
+ GRADUACAO x EXTRACURRICULARES: Voce esta chegando ao final do 3 semestre e ainda nao conclui nenhum credito de ACC e ainda reprovou em 3 materias nos últimos 2 semestres. Escolha:
+A - Fazer extracurriculares para espairecer
+B - Ignorar as extracurriculares
+C - Fazer uma extra e refazer uma materia, alem das demais, sem pressa e com dedicacao
