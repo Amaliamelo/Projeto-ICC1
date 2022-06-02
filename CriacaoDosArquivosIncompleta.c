@@ -16,7 +16,7 @@ int escolhaSituacao();
 int jogoInteiro();
 
 char NomeUsuario[256];
-int semestre = 1, pontuacao = 0, quantidadeRodadas = 0;
+int semestre = 0, pontuacao = 0, quantidadeRodadas = 0;
 // fun��o principal
 int main() {
     /////
@@ -58,7 +58,8 @@ int jogoInteiro(){
     for(int i=0;i<=7;i++){
         escolha = MenuRodadas();
         if(escolha == 1){
-            jogoInteiro();
+            //jogoInteiro();
+            NovaRodada();
         }
         else if(escolha == 2){
             //pq tem isso:??????????
@@ -78,13 +79,13 @@ int jogoInteiro(){
 int iniciar() {
     int ConfirmacaoDoNomeUsuario;
 
-    printf("Seja Bem - Vindo(a)!!! Digite seu nome de usu�rio: ");
+    printf("Seja Bem - Vindo(a)!!! Digite seu nome de usuario: ");
     scanf("%s", NomeUsuario);
 
     while (!ehNomeValido(NomeUsuario))
         scanf("%s", NomeUsuario);
 
-    printf("Seu nome de usuario �: %s ", NomeUsuario);
+    printf("Seu nome de usuario eh: %s ", NomeUsuario);
     printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
     printf("Digite sua escolha: ");
     scanf("%d", &ConfirmacaoDoNomeUsuario);
@@ -287,7 +288,7 @@ int NovaRodada() {
     ArquivoSituacoes = fopen("situacoes.txt", "r");
 
     if (ArquivoSituacoes != NULL) {
-        char texto_situacao[300];
+        char texto_situacao[500];
         char string;
         FILE *abreArquivoUsuario;
         abreArquivoUsuario = fopen(NomeUsuario, "a");
