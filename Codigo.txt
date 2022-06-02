@@ -51,6 +51,7 @@ int main() {
 int jogoInteiro(){
 
     NovaRodada();
+<<<<<<< HEAD:Codigo.txt
     int escolha=0;
     FILE *salvandoArquivo;
     //salvandoArquivo=fopen(NomeUsuario,"a");
@@ -68,6 +69,15 @@ int jogoInteiro(){
         else if(escolha == 3){
                 printf("Obrigado por jogar.. Ate a proxima!! :)\n");
             sair();
+=======
+
+    //int escolha = MenuRodadas();
+    for(int i=0;i<7;i++){
+        NovaRodada();
+        escolha = MenuRodadas();
+        if(escolha == 1){
+
+>>>>>>> 05d79bedf04d27a43d10ab9e268e86a0a69085aa:CriacaoDosArquivosIncompleta.c
         }
     }
 
@@ -329,9 +339,15 @@ int NovaRodada() {
                 printf("\n");// Quebra de linha após a entrada da situação
                 fprintf(abreArquivoUsuario, "\n");
                 fclose(abreArquivoUsuario);
+<<<<<<< HEAD:Codigo.txt
 
 
 
+=======
+
+
+
+>>>>>>> 05d79bedf04d27a43d10ab9e268e86a0a69085aa:CriacaoDosArquivosIncompleta.c
                 if(escolhaSituacao() == 1){
                    printf("Você ganhou 20 pontos!\n");//avançou de semestre?
                 }
