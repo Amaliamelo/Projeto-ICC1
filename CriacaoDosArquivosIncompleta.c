@@ -29,18 +29,14 @@ int main() {
         int opcaoDoJogador = MenuRodadas();
 
         if (opcaoDoJogador == 1)
-        jogoInteiro();
-            //NovaRodada();
-
+            jogoInteiro();
         if (opcaoDoJogador == 2)
-
             Salvar_Sair();
-
         else
             sair();
-
-    } else {
-        if (x == 2)
+    }
+    else {
+        if(x == 2)
             continuar();
 
         else
@@ -49,16 +45,13 @@ int main() {
     return 0;
 }
 int jogoInteiro(){
-
+    printf("\nsemestre: %d\n",semestre);
     NovaRodada();
     int escolha=0;
-    FILE *salvandoArquivo;
-    //salvandoArquivo=fopen(NomeUsuario,"a");
-    //int escolha = MenuRodadas();
     for(int i=0;i<=7;i++){
         escolha = MenuRodadas();
         if(escolha == 1){
-            //jogoInteiro();
+                printf("\nsemestre: %d\n",semestre);
             NovaRodada();
         }
         else if(escolha == 2){
@@ -71,11 +64,8 @@ int jogoInteiro(){
             sair();
         }
     }
-
-    // MenuRodadas();
-    //NovaRodada
 }
-// Fun��o Iniciar
+
 int iniciar() {
     int ConfirmacaoDoNomeUsuario;
 
@@ -101,6 +91,7 @@ int iniciar() {
     fclose(ArquivoUsuario);
     return 0;
 }
+
 int CriarArquivoUsuario(int ConfirmacaoNome, char NomeUsuario[256]) {
     FILE *TestandoNomeUsuario;
     FILE *arq_usuario;
@@ -154,9 +145,8 @@ int ehCaracter(char letra) {
         return 1;
     return 0;
 }
-// funcao que verifica se o valor inserido é valido ou não
-int ehNomeValido(char *nomeUsuario) {
 
+int ehNomeValido(char *nomeUsuario) {
     for (int i = 0; i < strlen(nomeUsuario); i++) {
         if (!ehCaracter(nomeUsuario[i])) {
             printf("O nome inserido não é valido, informe outro nome: ");
@@ -176,18 +166,18 @@ int continuar() {
         printf("Jogador não encontrado!\n");
         continuar();
     }
-    //printf("Arquivo encontrado\n");
+    fscanf(continuarArquivo,"%d %d %d",&semestre,&pontuacao,&quantidadeRodadas);
+    fclose(continuarArquivo);
     int opcaoDoJogador = MenuRodadas();
     if (opcaoDoJogador == 1)
         jogoInteiro();
 
     if (opcaoDoJogador == 2)
         Salvar_Sair();
-    else
+    if (opcaoDoJogador == 3)
         sair();
 }
 
-// Menu que aparecer� ao final de cada rodade
 int MenuRodadas() {
 
     int EscolhaJogador;
@@ -196,17 +186,13 @@ int MenuRodadas() {
         fprintf(stdout, "\n 1 - Nova Rodada, 2 - Salvar e sair 3 - Sair\n");
         fprintf(stdout, "LEMBRE-SE: a opcao 3 nao salvara o seu percurso at� aqui \n");
         fprintf(stdout, "\n Digite sua escolha: ");
-        scanf("%d", &EscolhaJogador); // armazenando a escolha
+        scanf("%d", &EscolhaJogador);
         if (EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
-            // se a escolha for correta, retorna ela
             return EscolhaJogador;
         if (EscolhaJogador < 1 || EscolhaJogador > 3)
-            // se for incorreta, entra no loop ate ser digitada corretamente
             fprintf(stdout, "Valor incorreto, digite novamente\n");
         break;
-
     } while (EscolhaJogador != 3);
-    //semestre++;
     return 0;
 }
 
@@ -266,19 +252,16 @@ int NovaRodada() {
         }
     }
 
-
     int dado;
     int situacao;
 
     srand(time(NULL));
 
     dado = rand() % 4;
-    // FAZENDO O DADO N�O CAIR EM NUMEROS QUE N�O V�O EXISTIR
     while (dado == 4) {
         dado = rand() % 4;
     }
 
-    // Pesquisando no Arquivo
     FILE *ArquivoSituacoes;
     FILE *lerSemestre;
     lerSemestre = fopen(NomeUsuario,"r");
@@ -300,23 +283,15 @@ int NovaRodada() {
         //	POSI��O DO PERSONAGEM NO TABULEIRO
         situacao = tabuleiro[semestre][dado];
 
-        /*semestre++;
-        fprintf(abreArquivoUsuario, "Semestre: %d\nPontuacao: %d\nQuantidadeRodadas: %d\n", semestre,pontuacao, quantidadeRodadas);
-         */
-
         setlocale(LC_ALL, "Portuguese");
 
         int ComparadorIndicador = 0; // numero em que sera realizada a compara��o com situa��o
         // percorre todo o arquivo
         while ((string = fgetc(ArquivoSituacoes)) != EOF) {
-            fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador); // procurando o id da situa��o no arquivo
-            //printf("\n Situacao: %d Comparador: %d\n",situacao,ComparadorIndicador); --TESTANDO
-            int i = -1; // contador do vetor
+            fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador);
+            int i = -1;
 
-            if (ComparadorIndicador == situacao) { /// quando id da situa��o for entrado, fa�a:
-                // situacao++;
-
-                // escrevendo situa��o e suas alternativas, caso haja uma "|'
+            if (ComparadorIndicador == situacao) {
                 do {
                     i++;
                     fscanf(ArquivoSituacoes, "%c", &texto_situacao[i]);
@@ -355,12 +330,12 @@ int NovaRodada() {
     return 0;
 }
 
-void sair() {
-    exit(0);
-}
-
 // N�O TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair() {
 
     return 0;
+}
+
+void sair() {
+    exit(0);
 }
