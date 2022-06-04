@@ -16,7 +16,7 @@ int escolhaSituacao();
 int jogoInteiro();
 
 char NomeUsuario[256];
-int semestre = 0, pontuacao = 0, quantidadeRodadas = 0;
+int semestre = 0, pontuacao = 0, quantidadeRodadas = 1;
 // fun��o principal
 int main() {
     /////
@@ -46,12 +46,16 @@ int main() {
 }
 int jogoInteiro(){
     printf("\nsemestre: %d\n",semestre);
+    printf("pontuação: %d\n",pontuacao);
+    printf("quantidadeRodada: %d\n",quantidadeRodadas);
     NovaRodada();
     int escolha=0;
     for(int i=0;i<=7;i++){
         escolha = MenuRodadas();
         if(escolha == 1){
                 printf("\nsemestre: %d\n",semestre);
+                printf("pontuação: %d\n",pontuacao);
+                printf("quantidadeRodada: %d\n",quantidadeRodadas);
             NovaRodada();
         }
         else if(escolha == 2){
@@ -166,8 +170,22 @@ int continuar() {
         printf("Jogador não encontrado!\n");
         continuar();
     }
-    fscanf(continuarArquivo,"%d %d %d",&semestre,&pontuacao,&quantidadeRodadas);
     fclose(continuarArquivo);
+
+    continuarArquivo = fopen(NomeUsuario, "r+");
+
+    fseek(continuarArquivo,10,SEEK_SET);
+    fscanf(continuarArquivo,"%d",&semestre);
+
+    fseek(continuarArquivo,46,SEEK_SET);
+    fscanf(continuarArquivo, "%d", &quantidadeRodadas);
+
+    fseek(continuarArquivo,23,SEEK_SET);
+    fscanf(continuarArquivo, "%d", &pontuacao);
+
+    fseek(continuarArquivo,0,SEEK_END);
+    fclose(continuarArquivo);
+
     int opcaoDoJogador = MenuRodadas();
     if (opcaoDoJogador == 1)
         jogoInteiro();
@@ -315,12 +333,24 @@ int NovaRodada() {
                     printf("Deu ruim, voce....\n");
                 }
 
+                // para pontuacao  eh 22
                 semestre+=1;
+                quantidadeRodadas+=1;
+
                 lerSemestre = fopen(NomeUsuario,"r+");
+
                 fseek(lerSemestre,10,SEEK_SET);
                 fprintf(lerSemestre, "%d", semestre);
+
+                fseek(lerSemestre,46,SEEK_SET);
+                fprintf(lerSemestre, "%d", quantidadeRodadas);
+
+                fseek(lerSemestre,24,SEEK_SET);
+                fprintf(lerSemestre, "%d", pontuacao);
+
                 fseek(lerSemestre,0,SEEK_END);
                 fclose(lerSemestre);
+
                 break;
 
 
