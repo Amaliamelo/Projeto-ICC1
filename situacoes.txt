@@ -61,7 +61,7 @@ C - Fazer o estágio e não conseguir passar em 3 matérias|
 13 Ohh não!! PANDEMIA, logo, a USP terá EaD! O que fazer?            
 A - Continuar na graduação
 B - Trancar o curso
-C - Desistir da faculdade 
+C - Desistir da faculdade|
 
 14 DECIDA-SE: Famlia X Sono X Faculdade!!
 Você tem uma prova muito dificil após o domingo de dia das mães e não conseguiu estudar durante a semana porque teve outras provas muito dificeis, escolha entre:
