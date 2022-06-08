@@ -1,0 +1,11 @@
+Semestre: 3
+Pontuacao: 0
+QuantidadeRodadas: 0
+ Nao conseguiu atingir a media suficiente para passar em 3 materias do 1º semestre, escolha:
+A - tentar fazer todas no 2º semestre
+B - fazer 1 em cada um dos proximos semestres
+C - desistir do curso
+ Voce nao suporta mais as aulas de Estatística e lembrou que a mataria nao e requisito para nada... ESCOLHA:
+A - fazer a IC e conseguir creditos de ACC
+B - fazer o estagio e não conseguir passar em 3 materias
+C - não conseguir se decidir e perder os prazos de resposta

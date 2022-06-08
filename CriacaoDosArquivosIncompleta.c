@@ -1,3 +1,4 @@
+
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -51,13 +52,23 @@ int main() {
 int jogoInteiro(){
 
     NovaRodada();
-
+    int escolha=0;
+    FILE *salvandoArquivo;
+    //salvandoArquivo=fopen(NomeUsuario,"a");
     //int escolha = MenuRodadas();
-    for(int i=0;i<7;i++){
-        NovaRodada();
+    for(int i=0;i<=7;i++){
         escolha = MenuRodadas();
         if(escolha == 1){
-
+            jogoInteiro();
+        }
+        else if(escolha == 2){
+            //pq tem isso:??????????
+            printf("Jogo salvo, ate a proxima!\n");
+            sair();
+        }
+        else if(escolha == 3){
+                printf("Obrigado por jogar.. Ate a proxima!! :)\n");
+            sair();
         }
     }
 
@@ -156,24 +167,22 @@ int ehNomeValido(char *nomeUsuario) {
 }
 
 int continuar() {
-    FILE *Continuar;
+    FILE *continuarArquivo;
     printf("Digite o Nome do Jogador: ");
     scanf("%s", NomeUsuario);
     strcat(NomeUsuario, ".txt");
-    Continuar = fopen(NomeUsuario, "r");
-    if (Continuar == NULL) {
+    continuarArquivo = fopen(NomeUsuario, "r");
+    if (continuarArquivo == NULL) {
         printf("Jogador não encontrado!\n");
         continuar();
     }
     //printf("Arquivo encontrado\n");
     int opcaoDoJogador = MenuRodadas();
     if (opcaoDoJogador == 1)
-        NovaRodada();
+        jogoInteiro();
 
     if (opcaoDoJogador == 2)
-
         Salvar_Sair();
-
     else
         sair();
 }
