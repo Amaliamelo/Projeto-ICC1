@@ -5,6 +5,7 @@
 #include <string.h>
 #include <time.h>
 
+//FUNÇÕES
 int MenuInicial();
 int iniciar();
 int continuar();
@@ -15,10 +16,14 @@ int Salvar_Sair();
 int CriarArquivoUsuario();
 int escolhaSituacao();
 int jogoInteiro();
+int finalDoJogo();
 
+// GLOBAIS
 char NomeUsuario[256];
-int semestre = 1, pontuacao = 0, quantidadeRodadas = 0;
-// fun��o principal
+int semestre = 0, pontuacao = 0, quantidadeRodadas = 1;
+
+
+//FUNÇÃO PRINCIPAL /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int main() {
     /////
     setlocale(LC_ALL, "Portuguese");
@@ -30,37 +35,39 @@ int main() {
         int opcaoDoJogador = MenuRodadas();
 
         if (opcaoDoJogador == 1)
-        jogoInteiro();
-            //NovaRodada();
-
+            jogoInteiro();
         if (opcaoDoJogador == 2)
-
             Salvar_Sair();
-
         else
             sair();
-
-    } else {
-        if (x == 2)
+    }
+    else {
+        if(x == 2)
             continuar();
 
         else
             sair();
     }
     return 0;
-}
-int jogoInteiro(){
+} ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//EXECUTA TODAS AS RODAS/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int jogoInteiro(){
+    printf("\nsemestre: %d\n",semestre);
+    printf("pontuação: %d\n",pontuacao);
+    printf("quantidadeRodada: %d\n",quantidadeRodadas);
     NovaRodada();
     int escolha=0;
-    FILE *salvandoArquivo;
-    //salvandoArquivo=fopen(NomeUsuario,"a");
-    //int escolha = MenuRodadas();
-    for(int i=0;i<=7;i++){
+
+    for(int i=0;i<7;i++){
         escolha = MenuRodadas();
         if(escolha == 1){
-            jogoInteiro();
+                printf("\nsemestre: %d\n",semestre);
+                printf("pontuação: %d\n",pontuacao);
+                printf("quantidadeRodada: %d\n",quantidadeRodadas);
+            NovaRodada();
         }
+
         else if(escolha == 2){
             //pq tem isso:??????????
             printf("Jogo salvo, ate a proxima!\n");
@@ -71,21 +78,23 @@ int jogoInteiro(){
             sair();
         }
     }
+    finalDoJogo();
+}////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // MenuRodadas();
-    //NovaRodada
-}
-// Fun��o Iniciar
+// INICIALIZANO O JOGO /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int iniciar() {
     int ConfirmacaoDoNomeUsuario;
 
-    printf("Seja Bem - Vindo(a)!!! Digite seu nome de usu�rio: ");
-    scanf("%s", NomeUsuario);
+    printf("Seja Bem - Vindo(a)!!! Digite seu nome de usuario: ");
+    fflush(stdin);
+    gets(NomeUsuario);
 
-    while (!ehNomeValido(NomeUsuario))
+    while (!ehNomeValido(NomeUsuario)){
+        fflush(stdin);
         scanf("%s", NomeUsuario);
+    }
 
-    printf("Seu nome de usuario �: %s ", NomeUsuario);
+    printf("Seu nome de usuario eh: %s ", NomeUsuario);
     printf("\n Podemos confirmar?! \n 1 - sim  2 - nao\n");
     printf("Digite sua escolha: ");
     scanf("%d", &ConfirmacaoDoNomeUsuario);
@@ -100,7 +109,9 @@ int iniciar() {
     fprintf(ArquivoUsuario, "Semestre: %d\nPontuacao: %d\nQuantidadeRodadas: %d\n", semestre,pontuacao, quantidadeRodadas);
     fclose(ArquivoUsuario);
     return 0;
-}
+}////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//CRIANDO ARQUIVO DO USUARIO /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int CriarArquivoUsuario(int ConfirmacaoNome, char NomeUsuario[256]) {
     FILE *TestandoNomeUsuario;
     FILE *arq_usuario;
@@ -127,26 +138,34 @@ int CriarArquivoUsuario(int ConfirmacaoNome, char NomeUsuario[256]) {
         iniciar();
     }
     return 0;
-}
+}//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Menu Inicial
+// MENU INICIAL //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int MenuInicial() {
     int EscolhaJogador;
     fprintf(stdout, "1 - Iniciar 2 - Continuar 3 - sair\n");
     fprintf(stdout, "Digite sua escolha: ");
     scanf("%d", &EscolhaJogador);
-    if (EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
+
+    while (!ehNomeValido(NomeUsuario))
+        scanf("%s", NomeUsuario);
+
+    if (EscolhaJogador >= 1 && EscolhaJogador <=3)
         return EscolhaJogador;
+
     do {
         fprintf(stdout, "Valor incorreto, digite novamente!\n");
         fprintf(stdout, "Digite sua escolha: ");
+        fflush(stdin);
         scanf("%d", &EscolhaJogador);
-    } while (EscolhaJogador < 1 || EscolhaJogador > 3);
+        fflush(stdin);
+    } while (EscolhaJogador < 1 && EscolhaJogador > 3);
 
     return EscolhaJogador;
-}
+}/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// funcao para verificar se o valor inserido é um caractere ou não
+
+// VERIFICANCO A EXISTENCIA DE CARACTER/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int ehCaracter(char letra) {
     if (((int)letra) >= 65 && ((int)letra) <= 90)
         return 1;
@@ -154,9 +173,8 @@ int ehCaracter(char letra) {
         return 1;
     return 0;
 }
-// funcao que verifica se o valor inserido é valido ou não
-int ehNomeValido(char *nomeUsuario) {
 
+int ehNomeValido(char *nomeUsuario) {
     for (int i = 0; i < strlen(nomeUsuario); i++) {
         if (!ehCaracter(nomeUsuario[i])) {
             printf("O nome inserido não é valido, informe outro nome: ");
@@ -164,8 +182,9 @@ int ehNomeValido(char *nomeUsuario) {
         }
     }
     return 1;
-}
+}/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// OPÇÃO CONTINUAR ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int continuar() {
     FILE *continuarArquivo;
     printf("Digite o Nome do Jogador: ");
@@ -176,18 +195,32 @@ int continuar() {
         printf("Jogador não encontrado!\n");
         continuar();
     }
-    //printf("Arquivo encontrado\n");
+    fclose(continuarArquivo);
+
+    continuarArquivo = fopen(NomeUsuario, "r+");
+
+    fseek(continuarArquivo,10,SEEK_SET);
+    fscanf(continuarArquivo,"%d",&semestre);
+
+    fseek(continuarArquivo,46,SEEK_SET);
+    fscanf(continuarArquivo, "%d", &quantidadeRodadas);
+
+    fseek(continuarArquivo,23,SEEK_SET);
+    fscanf(continuarArquivo, "%d", &pontuacao);
+
+    fseek(continuarArquivo,0,SEEK_END);
+    fclose(continuarArquivo);
+
     int opcaoDoJogador = MenuRodadas();
     if (opcaoDoJogador == 1)
         jogoInteiro();
-
     if (opcaoDoJogador == 2)
         Salvar_Sair();
-    else
+    if (opcaoDoJogador == 3)
         sair();
-}
+}/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Menu que aparecer� ao final de cada rodade
+// MENU INICIAL DE CADA RODADA ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int MenuRodadas() {
 
     int EscolhaJogador;
@@ -196,32 +229,34 @@ int MenuRodadas() {
         fprintf(stdout, "\n 1 - Nova Rodada, 2 - Salvar e sair 3 - Sair\n");
         fprintf(stdout, "LEMBRE-SE: a opcao 3 nao salvara o seu percurso at� aqui \n");
         fprintf(stdout, "\n Digite sua escolha: ");
-        scanf("%d", &EscolhaJogador); // armazenando a escolha
+        scanf("%d", &EscolhaJogador);
         if (EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
-            // se a escolha for correta, retorna ela
             return EscolhaJogador;
         if (EscolhaJogador < 1 || EscolhaJogador > 3)
-            // se for incorreta, entra no loop ate ser digitada corretamente
             fprintf(stdout, "Valor incorreto, digite novamente\n");
         break;
-
     } while (EscolhaJogador != 3);
-    //semestre++;
     return 0;
-}
+} ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int escolhaJogadorRodada(){
-
-}
-
-// EM ANDAMENTO --- N�O EST� PRONTO
+// ESCOLHA DA ALTERNATIVA ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int escolhaSituacao(){
-    int dadosituacao;
+
     char escolhaJogadorSituacao;
-    scanf("%s",&escolhaJogadorSituacao);
+    fflush(stdin);
+    scanf("%c", &escolhaJogadorSituacao);
+
+    int dadosituacao;
+
     srand(time(NULL));
 
-    dadosituacao = rand() % 10;//para situacoes que precisam de um novo rand
+    dadosituacao = rand() % 10;
+
+    printf("numero do dado: %d\n", dadosituacao);
+
+    escolhaJogadorSituacao = toupper(escolhaJogadorSituacao);
+    printf("escolha: %c\n", escolhaJogadorSituacao);
+
     if(escolhaJogadorSituacao == 'A'){
         if(dadosituacao <= 7){
             pontuacao+=20;
@@ -243,7 +278,7 @@ int escolhaSituacao(){
 
     }
     else if(escolhaJogadorSituacao == 'C'){
-        if(dadosituacao <= 3){
+        if(dadosituacao <= 2){
             pontuacao+=20;
             return 1;
         }
@@ -253,8 +288,9 @@ int escolhaSituacao(){
 
     }
 
-}
+}///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// FUNÇÃO DA RODADA ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int NovaRodada() {
     int tabuleiro[8][4], cont = 0;
     int i, j;
@@ -266,19 +302,16 @@ int NovaRodada() {
         }
     }
 
-
     int dado;
     int situacao;
 
     srand(time(NULL));
 
     dado = rand() % 4;
-    // FAZENDO O DADO N�O CAIR EM NUMEROS QUE N�O V�O EXISTIR
     while (dado == 4) {
         dado = rand() % 4;
     }
 
-    // Pesquisando no Arquivo
     FILE *ArquivoSituacoes;
     FILE *lerSemestre;
     lerSemestre = fopen(NomeUsuario,"r");
@@ -288,7 +321,7 @@ int NovaRodada() {
     ArquivoSituacoes = fopen("situacoes.txt", "r");
 
     if (ArquivoSituacoes != NULL) {
-        char texto_situacao[300];
+        char texto_situacao[500];
         char string;
         FILE *abreArquivoUsuario;
         abreArquivoUsuario = fopen(NomeUsuario, "a");
@@ -300,23 +333,15 @@ int NovaRodada() {
         //	POSI��O DO PERSONAGEM NO TABULEIRO
         situacao = tabuleiro[semestre][dado];
 
-        /*semestre++;
-        fprintf(abreArquivoUsuario, "Semestre: %d\nPontuacao: %d\nQuantidadeRodadas: %d\n", semestre,pontuacao, quantidadeRodadas);
-         */
-
         setlocale(LC_ALL, "Portuguese");
 
         int ComparadorIndicador = 0; // numero em que sera realizada a compara��o com situa��o
         // percorre todo o arquivo
         while ((string = fgetc(ArquivoSituacoes)) != EOF) {
-            fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador); // procurando o id da situa��o no arquivo
-            //printf("\n Situacao: %d Comparador: %d\n",situacao,ComparadorIndicador); --TESTANDO
-            int i = -1; // contador do vetor
+            fscanf(ArquivoSituacoes, "%d", &ComparadorIndicador);
+            int i = -1;
 
-            if (ComparadorIndicador == situacao) { /// quando id da situa��o for entrado, fa�a:
-                // situacao++;
-
-                // escrevendo situa��o e suas alternativas, caso haja uma "|'
+            if (ComparadorIndicador == situacao) {
                 do {
                     i++;
                     fscanf(ArquivoSituacoes, "%c", &texto_situacao[i]);
@@ -334,18 +359,30 @@ int NovaRodada() {
 
 
                 if(escolhaSituacao() == 1){
-                   printf("Você ganhou 20 pontos!\n");//avançou de semestre?
+                   printf("Você ganhou 20 pontos!\n");//avançou de semestre? SIM
                 }
                 else{
                     printf("Deu ruim, voce....\n");
                 }
 
+                // para pontuacao  eh 22
                 semestre+=1;
+                quantidadeRodadas+=1;
+
                 lerSemestre = fopen(NomeUsuario,"r+");
+
                 fseek(lerSemestre,10,SEEK_SET);
                 fprintf(lerSemestre, "%d", semestre);
+
+                fseek(lerSemestre,46,SEEK_SET);
+                fprintf(lerSemestre, "%d", quantidadeRodadas);
+
+                fseek(lerSemestre,24,SEEK_SET);
+                fprintf(lerSemestre, "%d", pontuacao);
+
                 fseek(lerSemestre,0,SEEK_END);
                 fclose(lerSemestre);
+
                 break;
 
 
@@ -353,16 +390,40 @@ int NovaRodada() {
     }
     }
     return 0;
-}
+}///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void sair() {
-    exit(0);
+int finalDoJogo(){
+    printf("Parabens por chegar ao fim do Jogo da Vida Universitaria!!!!!!!!!!\n");
+    if(pontuacao>=130){
+        printf("Parabens por ter sido um aluno dedicado, voce foi de longe o melhor aluno da sala!!! Suas horas de estudos nao foram atoa, voce se formou com maestria!!!!\n");
+        return;
+    }
+    else if(pontuacao >= 100){
+        printf("Parabens por ter sido um aluno dedicado, voce nao foi o melhor, mas ERA um dos melhores, sua dedicacao foi retornada e voce conseguiu se formar em BSI, parabeens!!!!!!\n");
+    }
+    else if(pontuacao >=70){
+        printf("Voce definitivamente nao foi o melhor aluno da sala, pra ser sincero estava entre os medianos ");
+        printf("com muita dificuldade e algumas DP's conseguiu se formar em 6 anos... nao e pouco mas ainda assim e algo, parabeeeeens!!\n");
+        return;
+     }
+    else if(pontuacao >=30){
+        printf("Curtindo e estudando muiiiito raramente, voce estava entre os piores, mas nao era o pior, bebendo muito para afogar as magoas");
+        printf(", voce teve cirrose por tanto beber e nao conseguiu terminar a faculdade, mas relaxe voce esta vivo!\n");
+        return;
+     }
+    else if(pontuacao >=0){
+        printf("Caramba, a USP vai ter pesadelos com suas atitudes durante o curso...Voce vai ficar lembrado pra sempre, mas nao de um jeito bom ");
+        printf(", nem tudo sao flores..E como voce era baladeiro, gostava de sair.. quando voce estava bebado em uma festa, acabou entrando em uma briga e ficou em coma por 10 ANOS! ");
+        printf("Infelizmente voce foi expulso da faculdade depois de um tempo, mas seguiu sua vida feliz (?)....\n");
+        return;
+    }
 }
-
-// N�O TA PRONTO....FALTA ARQUIVO
+// NAO TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair() {
 
     return 0;
 }
 
-
+void sair() {
+    exit(0);
+}

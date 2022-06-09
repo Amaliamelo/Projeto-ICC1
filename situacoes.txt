@@ -1,102 +1,135 @@
-﻿1 OHHHH NAOOO!!! Voce vai ter aula de Geometria Analitica com um professor ruim, boa sorte.
-(Se tirar maior ou igual a 4 no dado: Você passou na materia sem muitas dificuldades)
-(Se tirar menor ou igual a 3 no dado: Você pegou DP na materia...)|
+﻿1 OHHHH NAOOO!!! Voce vai ter aula de Geometria Analitica com um professor com uma didatica pessima... Boa sorte :)
+A - Montar um grupo de estudos com o pessoal da sala para que todos se ajudem
+B - Estudar muito essa matéria a parte e aprender sozinho
+C - Excluir a materia e faze-la com outro professor|
 
-2 Voce deu sorte! A P1 de Matematica Discreta sera online... continue plenamente|
+2 Voce deu sorte! A Primeira prova de Matematica Discreta sere online, porem, decida:
+A - Fazer a prova em grupo com seus coleguinhas
+B - Não fazer a prova em grupo  
+C - Fazer a prova no meio de uma festa|
 
-3 O projeto semestral de ICC1 devera ser feito em 4 semanas e voce tera outros 3 projetos para fazer, decida:
-A - Fazer um jogo de RPG
-B - Fazer um banco de dados de um supermercado
+3 O projeto semestral de ICC devera ser feito em quatro semanas e você tera outros tres projetos de outras materias para fazer. Escolha qual projeto aderir:
+A - Fazer um banco de dados de um supermercado
+B - Fazer um jogo de RPG
 C - Fazer um jogo da velha|
 
-4 Parabens! Voce tera aula de sistemas digitais neste semestre. O professor e otimo! Mas boa sorte em utilizar o programa de compilacao para a placa logica.
-(Se tirar maior ou igual a 4 no dado: Voce passou na materia sem muitas dificuldades)
-(Se tirar menor ou igual a 3 no dado: Voce não seguiu o pdf do professor e pegou DP por queimar a placa)|
+4 Parabens! Voce tera aula de sistemas digitais neste semestre. O professor e otimo! Mas boa sorte em utilizar o programa de compilacao para a placa logica."
+A - Mesmo com um bom professor voce teve dificuldades e precisou estudar mais do que o esperado
+B - O professor ensinava bem mas era carrasco na hora de corrigir as provas
+C - Você queimou a placa lógica quando descarrgou o projeto final da materia|
 
-5 Nao conseguiu atingir a media suficiente para passar em 3 materias do 1º semestre, escolha:
-A - tentar fazer todas no 2º semestre
-B - fazer 1 em cada um dos proximos semestres
-C - desistir do curso|
+5 Você tem que estudar para Calculo Um e este pensando em matar a aula Oraganizacao e Arquitetura de computadores:
+A - Matar a aula para estudar
+B - Estudar durante a aula
+C - Não estudar para Calculo|
 
 6 Voce nao participou da semana de recepcao e nem procurou se integrar com seus colegas de sala no primeiro semestre...agora precisa fazer um longo projeto e esta sozinho, o que fazer?
-A - continuar sozinho, sou autosuficiente
-B - Ir nas festas e interagir
-C - nao fazer o projeto|
+A - Ir nas festas e interagir
+B - Continuar sozinho, sou autossuficiente
+C - Não fazer o projeto|
 
-7 A P1 de calculo sera no dia de uma festa muito esperada, o que fazer:
-A - ir a festa
-B - estudar
-C - nao ir a festa e nao conseguir estudar por estar querendo ir a festa|
-	
-8 Bem vindo a vida de adulto!! Decida: ir a uma festa que vale 25 bandecos ou recarregar o cartao?!
-A - ir à festa e passar 25 dias fazendo jejum intermitente
-B - Recarregar o cartao e entrar em depressao por nao ter ido na festa
-C - Recarregar o cartao e dormir no dia da festa|
+7 A Primeiro prova de calculo será no dia de uma festa muito esperada... o que fazer?!
+A - Estudar
+B - Ir a festa
+C - Não ir à festa e nao conseguir estudar por estar querendo ir a festa|
 
-9 Vish!!! Voca nao entende as aulas de teoria da computacao e fica sempre boiando na sala...como ira proceder?  
+8 Bem vindo a vida de adulto!! Decida: ir a uma festa que vale vinte e cinco bandecos ou recarregar o cartao?!
+A - Recarregar o cartao e dormir no dia da festa
+B - Recarregar o cartao e ficar triste por não ter ido na festa
+C - Ir à festa e passar vinte e cinco dias fazendo jejum intermitente|
+
+9 Vish!!! Voce nao entende as aulas de teoria da computacao e fica sempre boiando na sala, como ira proceder?
 A - Tentar estudar com os inteligentes
-B - Ir pra festa e se divertir ja que nao entende mesmo|
+B - Ser autosuficiente e estudar sozinho o maximo possivel
+C - Ir pra festa e se divertir ja que nao entende mesmo|
 
 10 ESTAGIO!! Voce precisa encontrar uma vaga de estagio que lhe ajude a pagar as contas e continuar na graduacao, como proceder?!
-A - Esperar cair do ceu ou o ICMC lhe encaminhar
+A - Analisar vaga a vaga com atencao para ver as que se encaixam as suas demandas
 B - Atualizar seu Linkedin e curriculos diversos e encaminha-los enlouquecidamente
-C - Analisar vaga a vaga com atenção para ver se ela se encaixa as suas demandas|
+C - Esperar cair do ceu ou o ICMC lhe encaminhar|
 
-11 Voce nao suporta mais as aulas de Estatística e lembrou que a mataria nao e requisito para nada... ESCOLHA:
-A - fazer a IC e conseguir creditos de ACC
-B - fazer o estagio e não conseguir passar em 3 materias
-C - não conseguir se decidir e perder os prazos de resposta|
+11 Voce nao suporta mais as aulas de Estatistica e lembrou que a materia nao e requisito para nada... ESCOLHA: 
+A - Estudar bastante para passar e nao ter que lidar com essa matéria de novo
+B - Trancar/excluir a materia 
+C - Continuar e não estudar, correndo risco de reprovar|
 
-12 Voce tem uma prova muito dificil apos o domingo de dia das maes e nao conseguiu estudar durante a semana porque teve outras provas muito dificeis, escolha entre:
-A - Ir para casa visitar a sua mamae, nao estudar e nem descansar para a prova
-B - Dormir o final de semana inteiro, estar descansada(o) para a prova porém inseguro sobre suas capacidades
-C - Estudar o final de semana interio, ficar cansado e triste por nao ter ido ver sua family!!|
+12 Voce esta concorrendo para uma vaga de estagio de 6h semanais e para uma bolsa de Iniciacao Cientifica de 4h semanais. Descobriu que passou em ambas, como você ira proceder?!
+A - Fazer a IC e conseguir creditos de ACC
+B - Nao conseguir se decidir e perder os prazos de resposta
+C - Fazer o estagio e nao conseguir passar em 3 materias|
 
-13 GRADUACAO x EXTRACURRICULARES: Voce esta chegando ao final do 3 semestre e ainda nao conclui nenhum credito de ACC e ainda reprovou em 3 materias nos últimos 2 semestres. Escolha:
-A - Fazer extracurriculares para espairecer
-B - Ignorar as extracurriculares
-C - Fazer uma extra e refazer uma materia, alem das demais, sem pressa e com dedicacao|
+13 Ohh nao!! PANDEMIA, logo, a USP tera EaD! O que fazer?            
+A - Continuar na graduacao
+B - Trancar o curso
+C - Desistir da faculdade|
 
+14 DECIDA-SE: Famlia X Sono X Faculdade!!
+Voce tem uma prova muito dificil apos o domingo de dia das maes e nao conseguiu estudar durante a semana porque teve outras provas muito dificeis, escolha entre:
+A - Estudar o final de semana interio, ficar cansado e triste por nao ter ido ver sua family!!
+B - Dormir o final de semana inteiro, estar descansada(o) para a prova porem inseguro sobre suas capacidades
+C - Ir para casa visitar a sua mamae, não estudar e nem descansar para a prova|
 
+15 GRADUACAO x EXTRACURRICULARES
+Você esta chegando ao final do 3 semestre e ainda nao conclui nenhum credito de ACC e ainda reprovou em 3 materias nos ultimos 2 semestres. Escolha:
+A - Fazer uma extra e refazer uma materia, alem das demais, sem pressa e com dedicacao 
+B - Fazer extracurriculares para espairecer 
+C - Ignorar as extracurriculares|
 
+16 ALERTA!! Professor babaca!! o que fazer?!
+A - Manter a plenitude mesmo querendo esgana-lo por dentro
+B - Trancar a materia e esperar para te-la com outro professor
+C - Demonstrar o seu desgosto e aceitar as consequencias!!|
 
+17 Voce estava indo para a aula de redes de computadores quando encontrou alguns amigos no corredor que te convidaram para uma festa, decida-se:
+A - Ir para a festa depois da aula
+B - Não ir a festa
+C - Ir a aula, pegar presença e ir para a festa|
 
+18 Voce se sente sobrecarregado!! Esta sendo pressionado por si mesmo, pela sua familia e ao que parece por todas as pessoas a sua volta, portanto, escolha:
+A - Fazer uma pausa, voltar para sua cidade e ficar la durante uma semana recuperando as energias.
+B - Começar a fazer algum esporte da atletica e excluir algumas materias este semestre
+C - Continuar suportanto as pressoes exteriores sem alivia-las|
 
+19 BURNOUT!!! Infelizmente voce nao soube administrar sua vida universitaria e ficou doente!! Escolha: 
+A - Trancar o curso por um tempo e frequentar o psicologo
+B - Continuar a graduacao e dar um jeito de melhorar
+C - Desistir da graduacao|
 
+20 DECIDA-SE: Social X Intelectual!!
+Voce tem um grupo de amigos mais festeiro e extrovertido, que gosta de ir para festas e se encontrar em barzinhos. Em contrapartida, possui amigos mais sérios e que se reúnem apenas para estudar e fazer trabalhos, logo, escolha:
+A - Priorizar os seus momentos e escolher com qual grupo interagir na hora certa.
+B - Focar nos estudos e se distanciar dos amigos extrovertidos e simpáticos
+C - Ignorar ambos os grupos e se isolar|
 
+21 EEEH PANDEMIA!! Por conta das aulas online você conseguiu:
+A - Fazer mais materias do que o esperado nesse semestre
+B - Participar tranquilamente de algumas extras
+C - Dormir durante as aulas online|
 
+22 A optativa eletiva de introducao a ciencia de dados nao lhe agradou, decida:
+A - continuar ate o final apenas para conseguir os créditos necessários
+B - Excluir a optativa
+C - Trancar a optativa e continuar depois|
 
+23 Bem vindo ao Setimo Semestre!! Este é o momento de você colocar em dia seus creditos em optativas, portanto, decida-se:
+A - Fazer um planejamento de aulas optativas entre esse e o proximo semestre para sair com um titulo em uma enfase
+B - Fazer todas as optativas que faltam sem procurar saber muito o conteúdo delas, apenas para completar os creditos
+C - Permanecer mais 6 meses fazendo apenas o estágio e tentar concluir todas as optativas no proximo semestre|
 
+24 |
 
+25 |
 
+26 |
 
+27 |
 
+28 |
 
+29 |
 
+30 |
 
+31 |
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+32 |
