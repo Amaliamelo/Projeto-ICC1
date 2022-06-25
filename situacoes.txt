@@ -111,25 +111,52 @@ A - continuar ate o final apenas para conseguir os créditos necessários
 B - Excluir a optativa
 C - Trancar a optativa e continuar depois|
 
-23 Bem vindo ao Setimo Semestre!! Este é o momento de você colocar em dia seus creditos em optativas, portanto, decida-se:
+23 Você está no sexto semestre e já está começando a pensar no Estágio Supervisionado. Porém, já são muitas matérias para lidar no atual. O que fazer?                                                                                                                                                  
+A - Foca em passar nas matérias deste semestre para não pensar nisso no futuro, mas, também começar a se organizar para o estágio. Tudo no seu tempo...
+B - Ignora as matérias que não te interessam muito e dá mais atenção para o futuro estágio.
+C- Não faz nem um, nem outro e só procrastina por não conseguir se resolver.|
+
+24 Você está com muita dificuldade em Engenharia de Segurança e lembrou que subestimou uma matéria anterior que era essencial para esta (e passou por sorte): Rede de Computadores. O que fazer?
+A - Estudar em dobro para sanar as dificuldades em Redes de Computadores e acompanhar a matéria atual. Afinal, toda ação tem uma consequência, boa ou ruim ;]
+B - Dá um jeito de entender o mínimo de Redes de Computadores e tenta passar meio empurrado por Engenharia de Segurança.
+C - Subestima Engenharia de Segurança também e joga nas mãos de Deus.|
+
+25 Bem vindo ao Setimo Semestre!! Este é o momento de você colocar em dia seus creditos em optativas, portanto, decida-se:
 A - Fazer um planejamento de aulas optativas entre esse e o proximo semestre para sair com um titulo em uma enfase
 B - Fazer todas as optativas que faltam sem procurar saber muito o conteúdo delas, apenas para completar os creditos
-C - Permanecer mais 6 meses fazendo apenas o estágio e tentar concluir todas as optativas no proximo semestre|
+C - Permanecer mais 6 meses fazendo apenas o estágio e tentar concluir todas as optativas no proximo semestre |
 
-24 |
+26 Você está fazendo a optativa eletiva "Aprendizado de Máquina" e, apesar de gostar muito da área, o(a) professor(a) é carrasco e você corre o risco de reprovar e não conseguir os créditos. Como reagir?
+A - Não desiste e estuda para passar e ganhar os créditos. Afinal, essa área é importante para você!
+B - Exclui/tranca ela nesse semestre e planeja como repor os créditos no próximo.
+C - Exclui/tranca essa matéria e nem pensa mais nos créditos que precisa.|
 
-25 |
+27  Está na hora de decidir fazer ou não uma "enfase", portanto, escolha:
+A - Analise as enfases e converse com veteranos que já as fizeram
+B - Escolha a enfase mais facil e conclua
+C - Não faça enfase |
 
-26 |
+28  Você escolheu uma enfase que não está gostando, o que fazer?!
+A - Excluir algumas disciplinas da enfase e manter outras, analisando com calmo quais serão suas preferencias.
+B - Excluir as disciplinas de enfase o quanto antes
+C - Continuar mesmo não gostando |
 
-27 |
+29  O ultimo semestre finalmente chegou!!! O fim esta proximo e decisões precisam ser tomadas:
+A - Teminar todas as disciplinas faltantes
+B - Prolongar a graduação por mais um ano para fazer estágio
+C - Trancar o curso e ir fazer intercambio|
 
-28 |
+30  E após graduação?! Seu professor lhe fez um convite para começar a trilha do mestrado agora em seu ultimo semestre, vocÊ escolhe:
+A - Começar a trilha
+B - Ir para o mercado de trabalho
+C - tentar conciliar o mestrado e o mercado de trabalho|
 
-29 |
+31 Você descobre a oportunidade de ganhar uma bolsa de intercambio para a Inglaterra, para fazer estudos complementares na área de tecnologia, entretanto no dia da prova para a bolsa ocorrerá a prova para um concurso publico importante que lhe daria estabilidade financeira, decida:
+A - fazer a prova do concurso publico
+B - fazer a prova do intercambio
+C - ir beber e não fazer nenhum dos dois|
 
-30 |
-
-31 |
-
-32 |
+32 Decida-se:
+A - ir para um congresso nos EUA que talvez lhe traga contatos e boas oportunidades de emprego
+B - participar do processo seletivo de uma empresa nacional
+C - mudar sua área de atuação|

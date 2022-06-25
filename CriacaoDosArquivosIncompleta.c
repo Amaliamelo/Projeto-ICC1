@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <ctype.h>
 
 //FUNÇÕES
 int MenuInicial();
@@ -396,7 +397,7 @@ int finalDoJogo(){
     printf("Parabens por chegar ao fim do Jogo da Vida Universitaria!!!!!!!!!!\n");
     if(pontuacao>=130){
         printf("Parabens por ter sido um aluno dedicado, voce foi de longe o melhor aluno da sala!!! Suas horas de estudos nao foram atoa, voce se formou com maestria!!!!\n");
-        return;
+        return 0;
     }
     else if(pontuacao >= 100){
         printf("Parabens por ter sido um aluno dedicado, voce nao foi o melhor, mas ERA um dos melhores, sua dedicacao foi retornada e voce conseguiu se formar em BSI, parabeens!!!!!!\n");
@@ -404,18 +405,18 @@ int finalDoJogo(){
     else if(pontuacao >=70){
         printf("Voce definitivamente nao foi o melhor aluno da sala, pra ser sincero estava entre os medianos ");
         printf("com muita dificuldade e algumas DP's conseguiu se formar em 6 anos... nao e pouco mas ainda assim e algo, parabeeeeens!!\n");
-        return;
+        return 0;
      }
     else if(pontuacao >=30){
         printf("Curtindo e estudando muiiiito raramente, voce estava entre os piores, mas nao era o pior, bebendo muito para afogar as magoas");
         printf(", voce teve cirrose por tanto beber e nao conseguiu terminar a faculdade, mas relaxe voce esta vivo!\n");
-        return;
+        return 0;
      }
     else if(pontuacao >=0){
         printf("Caramba, a USP vai ter pesadelos com suas atitudes durante o curso...Voce vai ficar lembrado pra sempre, mas nao de um jeito bom ");
         printf(", nem tudo sao flores..E como voce era baladeiro, gostava de sair.. quando voce estava bebado em uma festa, acabou entrando em uma briga e ficou em coma por 10 ANOS! ");
         printf("Infelizmente voce foi expulso da faculdade depois de um tempo, mas seguiu sua vida feliz (?)....\n");
-        return;
+        return 0;
     }
 }
 // NAO TA PRONTO....FALTA ARQUIVO
