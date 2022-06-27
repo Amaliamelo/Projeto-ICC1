@@ -13,7 +13,7 @@ A - Fazer um banco de dados de um supermercado
 B - Fazer um jogo de RPG
 C - Fazer um jogo da velha|
 
-4 Parabens! Voce tera aula de sistemas digitais neste semestre. O professor e otimo! Mas boa sorte em utilizar o programa de compilacao para a placa logica."
+4 Parabens! Voce tera aula de sistemas digitais neste semestre. O professor e otimo! Mas boa sorte em utilizar o programa de compilacao para a placa logica.
 A - Mesmo com um bom professor voce teve dificuldades e precisou estudar mais do que o esperado
 B - O professor ensinava bem mas era carrasco na hora de corrigir as provas
 C - Você queimou a placa lógica quando descarrgou o projeto final da materia|

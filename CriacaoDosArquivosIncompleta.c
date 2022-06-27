@@ -18,7 +18,8 @@ int CriarArquivoUsuario();
 int escolhaSituacao();
 int jogoInteiro();
 int finalDoJogo();
-
+int ehCaracter(char letra);
+int ehNomeValido();
 // GLOBAIS
 char NomeUsuario[256];
 int semestre = 0, pontuacao = 0, quantidadeRodadas = 1;
@@ -34,7 +35,7 @@ int main() {
     if (x == 1) {
         iniciar();
         int opcaoDoJogador = MenuRodadas();
-
+        fflush(stdin);
         if (opcaoDoJogador == 1)
             jogoInteiro();
         if (opcaoDoJogador == 2)
@@ -61,6 +62,7 @@ int jogoInteiro(){
     int escolha=0;
 
     for(int i=0;i<7;i++){
+        printf("I do for = %d \n",i);
         escolha = MenuRodadas();
         if(escolha == 1){
                 printf("\nsemestre: %d\n",semestre);
@@ -78,8 +80,10 @@ int jogoInteiro(){
                 printf("Obrigado por jogar.. Ate a proxima!! :)\n");
             sair();
         }
+        if(semestre == 7)
+            finalDoJogo();
     }
-    finalDoJogo();
+    return 0;
 }////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // INICIALIZANO O JOGO /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,7 +92,7 @@ int iniciar() {
 
     printf("Seja Bem - Vindo(a)!!! Digite seu nome de usuario: ");
     fflush(stdin);
-    gets(NomeUsuario);
+    scanf("%s", NomeUsuario);
 
     while (!ehNomeValido(NomeUsuario)){
         fflush(stdin);
@@ -106,8 +110,8 @@ int iniciar() {
     }
     CriarArquivoUsuario(ConfirmacaoDoNomeUsuario, NomeUsuario);
     FILE *ArquivoUsuario;
-    ArquivoUsuario = fopen(NomeUsuario, "w+");
-    fprintf(ArquivoUsuario, "Semestre: %d\nPontuacao: %d\nQuantidadeRodadas: %d\n", semestre,pontuacao, quantidadeRodadas);
+    ArquivoUsuario = fopen(NomeUsuario, "r+");
+    fprintf(ArquivoUsuario, "Semestre: %d\nPontuacao: %d\n\nQuantidadeRodadas: %d\n", semestre,pontuacao, quantidadeRodadas);
     fclose(ArquivoUsuario);
     return 0;
 }////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -130,7 +134,7 @@ int CriarArquivoUsuario(int ConfirmacaoNome, char NomeUsuario[256]) {
             } while (TestandoNomeUsuario != NULL);
         }
         // Criacao do arquivo utilizando o nome do usuario
-        arq_usuario = fopen(NomeUsuario, "w");
+        arq_usuario = fopen(NomeUsuario, "w+");
 
     }
 
@@ -203,7 +207,7 @@ int continuar() {
     fseek(continuarArquivo,10,SEEK_SET);
     fscanf(continuarArquivo,"%d",&semestre);
 
-    fseek(continuarArquivo,46,SEEK_SET);
+    fseek(continuarArquivo,45,SEEK_SET);
     fscanf(continuarArquivo, "%d", &quantidadeRodadas);
 
     fseek(continuarArquivo,23,SEEK_SET);
@@ -219,6 +223,7 @@ int continuar() {
         Salvar_Sair();
     if (opcaoDoJogador == 3)
         sair();
+    return 0;
 }/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // MENU INICIAL DE CADA RODADA ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -231,6 +236,7 @@ int MenuRodadas() {
         fprintf(stdout, "LEMBRE-SE: a opcao 3 nao salvara o seu percurso at� aqui \n");
         fprintf(stdout, "\n Digite sua escolha: ");
         scanf("%d", &EscolhaJogador);
+        printf("Sua escolha foi: %d\n",EscolhaJogador);
         if (EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
             return EscolhaJogador;
         if (EscolhaJogador < 1 || EscolhaJogador > 3)
@@ -244,9 +250,9 @@ int MenuRodadas() {
 int escolhaSituacao(){
 
     char escolhaJogadorSituacao;
-    fflush(stdin);
-    scanf("%c", &escolhaJogadorSituacao);
-
+    scanf(" ");
+    scanf("%c",&escolhaJogadorSituacao);
+    printf("Escolha da situação foi: %c\n",escolhaJogadorSituacao);
     int dadosituacao;
 
     srand(time(NULL));
@@ -288,7 +294,7 @@ int escolhaSituacao(){
         }
 
     }
-
+    return 0;
 }///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // FUNÇÃO DA RODADA ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -319,6 +325,7 @@ int NovaRodada() {
 
     fscanf(lerSemestre,"%d %d %d",&semestre,&pontuacao,&quantidadeRodadas);
     fclose(lerSemestre);
+    printf("Semest: %d,pont: %d, qntd:%d\n",semestre,pontuacao,quantidadeRodadas);
     ArquivoSituacoes = fopen("situacoes.txt", "r");
 
     if (ArquivoSituacoes != NULL) {
@@ -375,10 +382,10 @@ int NovaRodada() {
                 fseek(lerSemestre,10,SEEK_SET);
                 fprintf(lerSemestre, "%d", semestre);
 
-                fseek(lerSemestre,46,SEEK_SET);
+                fseek(lerSemestre,45,SEEK_SET);
                 fprintf(lerSemestre, "%d", quantidadeRodadas);
 
-                fseek(lerSemestre,24,SEEK_SET);
+                fseek(lerSemestre,23,SEEK_SET);
                 fprintf(lerSemestre, "%d", pontuacao);
 
                 fseek(lerSemestre,0,SEEK_END);
@@ -393,7 +400,7 @@ int NovaRodada() {
     return 0;
 }///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int finalDoJogo(){
+int  finalDoJogo(){
     printf("Parabens por chegar ao fim do Jogo da Vida Universitaria!!!!!!!!!!\n");
     if(pontuacao>=130){
         printf("Parabens por ter sido um aluno dedicado, voce foi de longe o melhor aluno da sala!!! Suas horas de estudos nao foram atoa, voce se formou com maestria!!!!\n");
@@ -418,6 +425,7 @@ int finalDoJogo(){
         printf("Infelizmente voce foi expulso da faculdade depois de um tempo, mas seguiu sua vida feliz (?)....\n");
         return 0;
     }
+    return 0;
 }
 // NAO TA PRONTO....FALTA ARQUIVO
 int Salvar_Sair() {
