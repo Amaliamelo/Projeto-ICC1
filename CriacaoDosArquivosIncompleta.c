@@ -61,8 +61,8 @@ int jogoInteiro(){
     printf("quantidadeRodada: %d\n",quantidadeRodadas);
     NovaRodada();
     int escolha=0;
-
-    for(int i=0;i<7;i++){
+    int i=0;
+    while(i!=1){
         //printf("I do for = %d \n",i);
         escolha = MenuRodadas();
         if(escolha == 1){
@@ -81,8 +81,10 @@ int jogoInteiro(){
                 printf("Obrigado por jogar.. Ate a proxima!! :)\n");
             sair();
         }
-        if(semestre == 7)
+        if(semestre > 7){
             finalDoJogo();
+            i+=1;
+        }
     }
     return 0;
 }////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -248,10 +250,9 @@ int MenuRodadas() {
 
     do {
         fprintf(stdout, "\n 1 - Nova Rodada, 2 - Salvar e sair 3 - Sair\n");
-        fprintf(stdout, "LEMBRE-SE: a opcao 3 nao salvara o seu percurso at� aqui \n");
+        fprintf(stdout, "LEMBRE-SE: a opcao 3 nao salvara o seu percurso ate aqui \n");
         fprintf(stdout, "\n Digite sua escolha: ");
         scanf("%d", &EscolhaJogador);
-        printf("Sua escolha foi: %d\n",EscolhaJogador);
         if (EscolhaJogador == 1 || EscolhaJogador == 2 || EscolhaJogador == 3)
             return EscolhaJogador;
         if (EscolhaJogador < 1 || EscolhaJogador > 3)
@@ -265,20 +266,16 @@ int MenuRodadas() {
 int escolhaSituacao(){
 
     char escolhaJogadorSituacao;
+    printf("Digite sua escolha: ");
     scanf(" ");
     scanf("%c",&escolhaJogadorSituacao);
-    printf("Sua escolha foi: %c\n",escolhaJogadorSituacao);
     int dadosituacao;
 
     srand(time(NULL));
-
     dadosituacao = rand() % 10;
 
-    //printf("Numero sorteado pelo dado: %d\n", dadosituacao);
-    printf("Dados sendo sorteados...");
-
+    printf("Dados sendo sorteados...\n");
     escolhaJogadorSituacao = toupper(escolhaJogadorSituacao);
-    //printf("escolha: %c\n", escolhaJogadorSituacao);
 
     if(escolhaJogadorSituacao == 'A'){
         if(dadosituacao <= 7){
