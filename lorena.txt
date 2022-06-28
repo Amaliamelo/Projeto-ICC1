@@ -1,0 +1,34 @@
+Semestre: 8
+Pontuacao: 140QuantidadeRodadas: 9
+ Voce deu sorte! A Primeira prova de Matematica Discreta sere online, porem, decida:
+A - Fazer a prova em grupo com seus coleguinhas
+B - Não fazer a prova em grupo  
+C - Fazer a prova no meio de uma festa
+ Bem vindo a vida de adulto!! Decida: ir a uma festa que vale vinte e cinco bandecos ou recarregar o cartao?!
+A - Recarregar o cartao e dormir no dia da festa
+B - Recarregar o cartao e ficar triste por não ter ido na festa
+C - Ir à festa e passar vinte e cinco dias fazendo jejum intermitente
+ Voce esta concorrendo para uma vaga de estagio de 6h semanais e para uma bolsa de Iniciacao Cientifica de 4h semanais. Descobriu que passou em ambas, como você ira proceder?!
+A - Fazer a IC e conseguir creditos de ACC
+B - Nao conseguir se decidir e perder os prazos de resposta
+C - Fazer o estagio e nao conseguir passar em 3 materias
+ Ohh nao!! PANDEMIA, logo, a USP tera EaD! O que fazer?            
+A - Continuar na graduacao
+B - Trancar o curso
+C - Desistir da faculdade
+ Voce se sente sobrecarregado!! Esta sendo pressionado por si mesmo, pela sua familia e ao que parece por todas as pessoas a sua volta, portanto, escolha:
+A - Fazer uma pausa, voltar para sua cidade e ficar la durante uma semana recuperando as energias.
+B - Começar a fazer algum esporte da atletica e excluir algumas materias este semestre
+C - Continuar suportanto as pressoes exteriores sem alivia-las
+ Você está com dificuldade em Engenharia de Segurança, ja que subestimou a matéria requisito, e passou por sorte. O que fazer?
+A - Estudar em dobro para sanar as dificuldades da materia anterior e acompanhar a matéria atual. 
+B - Dá um jeito de entender minimamente a materia anterior e tentar passar meio empurrado pela atual.
+C - Subestima Engenharia de Segurança também e joga nas mãos de Deus.
+  Está na hora de decidir fazer ou não uma "enfase", portanto, escolha:
+A - Analise as enfases e converse com veteranos que já as fizeram
+B - Escolha a enfase mais facil e conclua
+C - Não faça enfase 
+  O ultimo semestre finalmente chegou!!! O fim esta proximo e decisões precisam ser tomadas:
+A - Teminar todas as disciplinas faltantes
+B - Prolongar a graduação por mais um ano para fazer estágio
+C - Trancar o curso e ir fazer intercambio

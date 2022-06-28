@@ -93,7 +93,7 @@ C - Continuar suportanto as pressoes exteriores sem alivia-las|
 19 BURNOUT!!! Infelizmente voce nao soube administrar sua vida universitaria e ficou doente!! Escolha: 
 A - Trancar o curso por um tempo e frequentar o psicologo
 B - Continuar a graduacao e dar um jeito de melhorar
-C - Desistir da graduacao|
+C - Não fazer nada sobre isso e ir piorando|
 
 20 DECIDA-SE: Social X Intelectual!!
 Voce tem um grupo de amigos mais festeiro e extrovertido, que gosta de ir para festas e se encontrar em barzinhos. Em contrapartida, possui amigos mais sérios e que se reúnem apenas para estudar e fazer trabalhos, logo, escolha:
@@ -116,9 +116,9 @@ A - Foca em passar nas matérias deste semestre para não pensar nisso no futuro
 B - Ignora as matérias que não te interessam muito e dá mais atenção para o futuro estágio.
 C- Não faz nem um, nem outro e só procrastina por não conseguir se resolver.|
 
-24 Você está com muita dificuldade em Engenharia de Segurança e lembrou que subestimou uma matéria anterior que era essencial para esta (e passou por sorte): Rede de Computadores. O que fazer?
-A - Estudar em dobro para sanar as dificuldades em Redes de Computadores e acompanhar a matéria atual. Afinal, toda ação tem uma consequência, boa ou ruim ;]
-B - Dá um jeito de entender o mínimo de Redes de Computadores e tenta passar meio empurrado por Engenharia de Segurança.
+24 Você está com dificuldade em Engenharia de Segurança, ja que subestimou a matéria requisito, e passou por sorte. O que fazer?
+A - Estudar em dobro para sanar as dificuldades da materia anterior e acompanhar a matéria atual. 
+B - Dá um jeito de entender minimamente a materia anterior e tentar passar meio empurrado pela atual.
 C - Subestima Engenharia de Segurança também e joga nas mãos de Deus.|
 
 25 Bem vindo ao Setimo Semestre!! Este é o momento de você colocar em dia seus creditos em optativas, portanto, decida-se:

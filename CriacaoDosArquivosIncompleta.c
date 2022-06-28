@@ -58,7 +58,7 @@ int main() {
 int jogoInteiro(){
     printf("\nsemestre: %d\n",semestre);
     printf("pontuação: %d\n",pontuacao);
-    printf("quantidadeRodada: %d\n",quantidadeRodadas);
+    //printf("quantidadeRodada: %d\n",quantidadeRodadas);
     NovaRodada();
     int escolha=0;
     int i=0;
@@ -68,7 +68,7 @@ int jogoInteiro(){
         if(escolha == 1){
                 printf("\nsemestre: %d\n",semestre);
                 printf("pontuação: %d\n",pontuacao);
-                printf("quantidadeRodada: %d\n",quantidadeRodadas);
+                //printf("quantidadeRodada: %d\n",quantidadeRodadas);
             NovaRodada();
         }
 
@@ -270,12 +270,23 @@ int escolhaSituacao(){
     scanf(" ");
     scanf("%c",&escolhaJogadorSituacao);
     int dadosituacao;
+    escolhaJogadorSituacao = toupper(escolhaJogadorSituacao);
+
+    //verificando se alternativa inserida é a correta
+    if(escolhaJogadorSituacao!='A'&&escolhaJogadorSituacao!='B'&&escolhaJogadorSituacao!='C'){
+        do{
+            printf("\nAlternativa invalida, digite novamente:");
+            scanf(" ");
+            scanf("%c",&escolhaJogadorSituacao);
+            escolhaJogadorSituacao = toupper(escolhaJogadorSituacao);
+
+        }while(escolhaJogadorSituacao!='A'&&escolhaJogadorSituacao!='B'&&escolhaJogadorSituacao!='C');
+    }
 
     srand(time(NULL));
     dadosituacao = rand() % 10;
 
     printf("Dados sendo sorteados...\n");
-    escolhaJogadorSituacao = toupper(escolhaJogadorSituacao);
 
     if(escolhaJogadorSituacao == 'A'){
         if(dadosituacao <= 7){
@@ -383,7 +394,7 @@ int NovaRodada() {
                    printf("Você ganhou 20 pontos!\n");//avançou de semestre? SIM
                 }
                 else{
-                    printf("Deu ruim, voce....\n");
+                    printf("Opa!! Pessima escolha ou você esta sem sorte nesta vida, tente na próxima....\n");
                 }
 
                 // para pontuacao  eh 22
