@@ -8,6 +8,7 @@
 
 //FUNÇÕES
 int MenuInicial();
+void instrucoes();
 int iniciar();
 int continuar();
 void sair();
@@ -62,7 +63,7 @@ int jogoInteiro(){
     int escolha=0;
 
     for(int i=0;i<7;i++){
-        printf("I do for = %d \n",i);
+        //printf("I do for = %d \n",i);
         escolha = MenuRodadas();
         if(escolha == 1){
                 printf("\nsemestre: %d\n",semestre);
@@ -147,6 +148,7 @@ int CriarArquivoUsuario(int ConfirmacaoNome, char NomeUsuario[256]) {
 
 // MENU INICIAL //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int MenuInicial() {
+    instrucoes();
     int EscolhaJogador;
     fprintf(stdout, "1 - Iniciar 2 - Continuar 3 - sair\n");
     fprintf(stdout, "Digite sua escolha: ");
@@ -169,6 +171,19 @@ int MenuInicial() {
     return EscolhaJogador;
 }/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+void instrucoes(){
+    printf("Bem - Vindo ao Jogo da vida Universitaria!!!\n");
+    printf("Objetivo: Se divertir ao se deparar com situacoes inusitadas que podem ocorrer  contigo durante a sua trajetoria pela graduacao!! E claro, alcancar o esperado  diploma;");
+    printf("\nComo Jogar: Utilize o teclado de seu computador e digite a opcao desejada para  dar prosseguimento ao jogo. Voce pode sair a qualquer momento, desejando salvar  ou nao o seu percurso!!");
+    printf("O jogo possui 8 rodadas (semestres), em cada uma delas  você terá uma situação e 3 possibilidades de resposta, sendo uma a mais ideal,  maior probabilidade de ganhar pontos,  e as outras menos ");
+    printf("ideais, menor probabilidade de ganhar pontos. Após, a sorte será lançada e você descobrirá se fez ou não uma boa escolha!!");
+    printf("\nAo final, a partir da sua pontuacao lhe diremos como foi a sua trajetoria ate aqui e quais foram as suas conquistas!!");
+    printf("\nATENCAO: digite apenas 1 nome/apelido unico de usuario, sem numeros, apenas cara-cter!!");
+    printf("\nDivirta-se!!\n \n ");
+
+
+
+}
 
 // VERIFICANCO A EXISTENCIA DE CARACTER/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int ehCaracter(char letra) {
@@ -252,17 +267,18 @@ int escolhaSituacao(){
     char escolhaJogadorSituacao;
     scanf(" ");
     scanf("%c",&escolhaJogadorSituacao);
-    printf("Escolha da situação foi: %c\n",escolhaJogadorSituacao);
+    printf("Sua escolha foi: %c\n",escolhaJogadorSituacao);
     int dadosituacao;
 
     srand(time(NULL));
 
     dadosituacao = rand() % 10;
 
-    printf("numero do dado: %d\n", dadosituacao);
+    //printf("Numero sorteado pelo dado: %d\n", dadosituacao);
+    printf("Dados sendo sorteados...");
 
     escolhaJogadorSituacao = toupper(escolhaJogadorSituacao);
-    printf("escolha: %c\n", escolhaJogadorSituacao);
+    //printf("escolha: %c\n", escolhaJogadorSituacao);
 
     if(escolhaJogadorSituacao == 'A'){
         if(dadosituacao <= 7){
@@ -325,7 +341,7 @@ int NovaRodada() {
 
     fscanf(lerSemestre,"%d %d %d",&semestre,&pontuacao,&quantidadeRodadas);
     fclose(lerSemestre);
-    printf("Semest: %d,pont: %d, qntd:%d\n",semestre,pontuacao,quantidadeRodadas);
+    //printf("Semest: %d,pont: %d, qntd:%d\n",semestre,pontuacao,quantidadeRodadas);
     ArquivoSituacoes = fopen("situacoes.txt", "r");
 
     if (ArquivoSituacoes != NULL) {
